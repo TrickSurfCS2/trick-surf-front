@@ -9,7 +9,7 @@ export type ErrorBoundaryProps = PropsWithChildren<{
   componentName: string
 }>
 
-const ErrorBoundary: FC<ErrorBoundaryProps> = (props, error: Error | null): ReactElement => {
+export const ErrorBoundary: FC<ErrorBoundaryProps> = (props, error: Error | null): ReactElement => {
   const { children, componentName } = props
 
   if (error) {
@@ -29,8 +29,8 @@ const ErrorBoundary: FC<ErrorBoundaryProps> = (props, error: Error | null): Reac
     )
   }
 
-  /* eslint-disable react/jsx-no-useless-fragment */
   return <>{children}</>
 }
 
+// eslint-disable-next-line react-refresh/only-export-components
 export default Catch(ErrorBoundary)

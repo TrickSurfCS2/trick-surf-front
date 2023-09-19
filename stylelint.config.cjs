@@ -1,5 +1,6 @@
+// eslint-disable-next-line no-undef
 module.exports = {
-  extends: ['stylelint-config-recommended', 'stylelint-config-prettier'],
+  extends: ['stylelint-config-recommended-scss', 'stylelint-config-prettier'],
   rules: {
     'at-rule-no-unknown': [
       true,
@@ -8,12 +9,6 @@ module.exports = {
       }
     ],
     'declaration-block-trailing-semicolon': null,
-    'no-descending-specificity': null,
-    'selector-pseudo-element-no-unknown': [
-      true,
-      {
-        ignorePseudoElements: ['v-deep']
-      }
-    ]
+    'no-descending-specificity': null
   }
 }

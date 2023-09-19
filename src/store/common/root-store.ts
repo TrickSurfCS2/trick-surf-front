@@ -1,4 +1,4 @@
-import { useRootStore } from '#/contexts/root-store'
+import { useRootStore } from '#/contexts/use-root-store'
 import AppStore from '../app.store'
 import UserStore from '../user.store'
 
@@ -8,7 +8,10 @@ export interface IRootStore {
 }
 
 //* ---- Root store ------------------------------------------------------------- *//
-export class IRootStore {
+export class RootStore implements IRootStore {
+  appStore!: AppStore
+  userStore!: UserStore
+
   constructor() {
     const appStore = new AppStore()
     const userStore = new UserStore()
