@@ -4,10 +4,10 @@ export const Logo = () => {
       <svg viewBox="0 0 900 200">
         <symbol id="s-text">
           <text textAnchor="middle" x="50%" y="80%">
-            SurfGxds
+            xSolare
           </text>
           <text textAnchor="middle" x="50.8%" y="80%">
-            SurfGxds
+            xSolare
           </text>
         </symbol>
 
