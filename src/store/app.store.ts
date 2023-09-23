@@ -1,8 +1,3 @@
-import { VscBracketError } from 'react-icons/vsc'
-
-import type { AxiosInstance } from 'axios'
-import axios from 'axios'
-
 import type { IModalController } from '#/components/ui/modal/modal.store'
 import type { ThemeVarious } from '#/contexts/theme'
 import type { TControllerRef } from '#/utils/common/utils'
@@ -87,43 +82,6 @@ export default class AppStore {
       wider: window.innerWidth > 1100 && window.innerWidth < 1920,
       widest: window.innerWidth >= 1920
     })
-  }
-
-  //* Axios
-  addAxiosInterceptors = (istance?: AxiosInstance): void => {
-    const _axios = istance ?? axios
-
-    _axios.interceptors.response.use(
-      (response) => response,
-      (error) => {
-        if (error?.response?.status === 404) {
-          this.modal?.showError({
-            Icon: VscBracketError,
-            maxWidth: 700,
-            message:
-              error?.response?.data?.message || error?.response?.data?.detail || error.toString()
-          })
-        } else {
-          this.modal?.showError({
-            Icon: VscBracketError,
-            maxWidth: 700,
-            message:
-              error?.response?.data?.message || error?.response?.data?.detail || error.toString()
-          })
-        }
-        return Promise.reject(error)
-      }
-    )
-
-    _axios.interceptors.request.use(
-      (config) => {
-        config.withCredentials = true
-        return config
-      },
-      (error) => {
-        return Promise.reject(error)
-      }
-    )
   }
 
   switchTheme = (): void => {

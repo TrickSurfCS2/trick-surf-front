@@ -26,7 +26,7 @@ export default class TricksStore {
     this.state.isLoaded = false
 
     try {
-      const { data } = await api.trick.v1.getList()
+      const { data } = await api.trick.v1.getTrickList()
       this.setTricks(data)
       this.state.isLoading = true
     } catch (e) {
