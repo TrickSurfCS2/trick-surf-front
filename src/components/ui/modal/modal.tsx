@@ -1,14 +1,19 @@
-import type { TControllerRef } from '#/utils/common/utils'
-import type { IModalController } from './modal.store'
-import type { CSSProperties, FC } from 'react'
-import cn from 'classnames'
 import { observer } from 'mobx-react-lite'
+import type { CSSProperties, FC } from 'react'
 import { useRef } from 'react'
-import { setController, useNewStore } from '#/utils/common/stores'
+
+import cn from 'classnames'
+
 import { Button } from '../button/button'
 import { Dialog } from '../dialog/dialog'
+
 import { ModalStore } from './modal.store'
 import { ModalStyled } from './modal.style'
+
+import type { IModalController } from './modal.store'
+
+import { setController, useNewStore } from '#/utils/common/stores'
+import type { TControllerRef } from '#/utils/common/utils'
 
 interface IModalProps {
   controllerRef: TControllerRef<IModalController>

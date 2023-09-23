@@ -1,5 +1,5 @@
+/* eslint-disable import/order */
 import type { QUnitType } from 'dayjs'
-
 import dayjs from 'dayjs'
 import 'dayjs/locale/ru'
 

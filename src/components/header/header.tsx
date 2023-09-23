@@ -1,10 +1,11 @@
-import type { ThemeVarious } from '#/contexts/theme'
 import type { FC } from 'react'
 
 import { GiSun, GiNightSleep } from 'react-icons/gi'
 import { IoMdRainy } from 'react-icons/io'
 
 import { HeaderStyled } from './header.style'
+
+import type { ThemeVarious } from '#/contexts/theme'
 
 const themeIcon = new Map<ThemeVarious, JSX.Element>([
   ['light', <GiSun key={1} />],

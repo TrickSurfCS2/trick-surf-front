@@ -1,8 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import type { IScrollRecord } from '#/store/app.store'
-
 import { expect, describe, it } from 'vitest'
 
+import type { IScrollRecord } from '#/store/app.store'
 import AppStore from '#/store/app.store'
 
 describe('AppStore', () => {

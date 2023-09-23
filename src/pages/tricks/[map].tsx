@@ -1,14 +1,16 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import type { FC } from 'react'
+
+import { TricksStyled } from './style'
+
 import TricksList from '#/components/tricks/tricks-list'
 import TricksStore from '#/store/components/tricks.store'
-import { TricksStyled } from './style'
 
 const Tricks: FC = observer(() => {
   const store = useNewStore(TricksStore)
 
   useEffect(() => {
-    // store.setTricks
+    store.fetchTricks()
   }, [])
 
   return (
@@ -17,7 +19,6 @@ const Tricks: FC = observer(() => {
         <h1>Tricks</h1>
       </div>
       <TricksList tricks={{} as any} triggers={{} as any} />
-      <div />
     </TricksStyled>
   )
 })

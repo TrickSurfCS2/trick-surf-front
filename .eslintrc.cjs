@@ -24,21 +24,34 @@ module.exports = {
       }
     ],
     'no-console': 'off',
+
     'import/order': [
-      'warn',
+      'error',
       {
-        groups: [
-          'type',
-          'builtin',
-          'external',
-          'internal',
-          'unknown',
-          'parent',
-          'sibling',
-          'index',
-          'object'
+        groups: ['builtin', 'external', 'parent', 'sibling', 'index', 'object', 'type'],
+        pathGroups: [
+          {
+            pattern: '{react,react-router-dom,react-dom/**,mobx,mobx-react-lite}',
+            group: 'external',
+            position: 'before'
+          },
+          {
+            pattern: '{@emotion/**,dayjs,axios,classnames,}',
+            group: 'parent',
+            position: 'before'
+          },
+          {
+            pattern:
+              '{#/components/**,#/contexts/**,#/hooks/**,#/pages/**,#/store/**,#/styles/**,#/types/**,#/utils/**}',
+            group: 'internal',
+            position: 'before'
+          }
         ],
-        alphabetize: { order: 'asc', caseInsensitive: true }
+        pathGroupsExcludedImportTypes: ['builtin'],
+        alphabetize: {
+          order: 'asc'
+        },
+        'newlines-between': 'always'
       }
     ],
 

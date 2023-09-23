@@ -1,10 +1,11 @@
+import { VscBracketError } from 'react-icons/vsc'
+
+import type { AxiosInstance } from 'axios'
+import axios from 'axios'
+
 import type { IModalController } from '#/components/ui/modal/modal.store'
 import type { ThemeVarious } from '#/contexts/theme'
 import type { TControllerRef } from '#/utils/common/utils'
-import type { AxiosInstance } from 'axios'
-
-import axios from 'axios'
-import { VscBracketError } from 'react-icons/vsc'
 
 interface IAppStoreState {
   theme: ThemeVarious

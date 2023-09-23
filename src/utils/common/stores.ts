@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
-import type { TControllerRef } from './utils'
 import { useMemo, useRef } from 'react'
+
+import type { TControllerRef } from './utils'
 
 //* ---- MobX store helpers ------------------------------ * //
 

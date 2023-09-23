@@ -1,5 +1,6 @@
-import type { Trick, Trigger } from '#/types/models/trick.interface'
 import { TricksListStyled } from './style'
+
+import type { Trick, Trigger } from '#/types/models/trick.interface'
 
 interface Props {
   tricks: Trick[]

@@ -1,4 +1,4 @@
-export interface IUser {
+export interface User {
   id: string
   password: string
   login: string
@@ -6,10 +6,10 @@ export interface IUser {
   createdAt?: Date
   updatedAt?: Date
 
-  role: ERole
+  role: Role
 }
 
-export enum ERole {
+export enum Role {
   User = 'User',
   Admin = 'Admin'
 }

@@ -1,5 +1,6 @@
 /* eslint-disable no-unused-vars */
 import type { RefObject } from 'react'
+
 import { useEventListener } from './use-event-listener'
 
 type Handler = (event: MouseEvent) => void
