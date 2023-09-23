@@ -9,4 +9,4 @@ RUN bun i --ignore-scripts
 RUN bun run build
 
 ENV HOST 0.0.0.0
-CMD ["bun", "--bun", "run", "start"]
+CMD ["bun", "run", "start"]
