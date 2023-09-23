@@ -26,6 +26,6 @@ app.listen(port, () => {
   console.log('\x1B[36m%s\x1B[0m', '---------------------------------------')
   console.log('\x1B[32m%s\x1B[0m', '🚀 Server started')
   console.log('\x1B[36m%s\x1B[0m', `✨ Listening on the port`, `${port}`)
-  console.log('\x1B[36m%s\x1B[0m', '🚀 Node:', process.env.npm_config_user_agent)
+  console.log('\x1B[36m%s\x1B[0m', '💿 Node:', process.env.npm_config_user_agent)
   console.log('\x1B[36m%s\x1B[0m', '---------------------------------------')
 })

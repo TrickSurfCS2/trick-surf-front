@@ -16,7 +16,7 @@
   },
   "scripts": {
     "dev": "vite",
-    "start": "bun --bun run server/server.ts",
+    "start": "node --loader ts-node/esm server/server.ts",
     "build": "tsc -p tsconfig.build.json && vite build",
     "preview": "vite preview",
     "------------------------------------------------------------------------------------------------------------": "",
@@ -79,6 +79,7 @@
     "stylelint": "15.10.3",
     "stylelint-config-prettier": "9.0.5",
     "stylelint-config-recommended-scss": "13.0.0",
+    "ts-node": "^10.9.1",
     "typescript": "5.2.2",
     "unplugin-auto-import": "0.16.6",
     "vite": "4.4.9",
