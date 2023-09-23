@@ -7,7 +7,7 @@ import TricksList from '#/components/tricks/tricks-list'
 import TricksStore from '#/store/components/tricks.store'
 
 const Tricks: FC = observer(() => {
-  const store = useNewStore(TricksStore)
+  // const store = useNewStore(TricksStore)
 
   useEffect(() => {
     store.fetchTricks()
