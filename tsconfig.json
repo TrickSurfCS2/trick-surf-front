@@ -3,12 +3,9 @@
   "compilerOptions": {
     "target": "ES2020",
     "useDefineForClassFields": true,
-    "lib": [
-      "ES2020",
-      "DOM",
-      "DOM.Iterable"
-    ],
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
     "module": "ESNext",
+    "esModuleInterop": true,
     "skipLibCheck": true,
     /* Bundler mode */
     "moduleResolution": "bundler",
@@ -26,25 +23,12 @@
     /* Alias */
     "baseUrl": ".",
     "paths": {
-      "#/*": [
-        "./src/*"
-      ],
-      "~/*": [
-        "./node_modules/*"
-      ]
+      "#/*": ["./src/*"],
+      "~/*": ["./node_modules/*"]
     },
-    "typeRoots": [
-      "./node_modules/@types",
-      "./src/types/declare"
-    ]
+    "typeRoots": ["./node_modules/@types", "./src/types/declare"]
   },
-  "include": [
-    "src",
-    "server",
-    "test",
-    "vitest",
-    "auto-imports.config.ts"
-  ],
+  "include": ["src", "server", "test", "vitest", "auto-imports.config.ts"],
   "references": [
     {
       "path": "./tsconfig.node.json"
