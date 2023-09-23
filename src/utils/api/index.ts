@@ -1,9 +1,7 @@
 import { AuthApi } from './auth'
-import { PortainerApi } from './portainer'
 
 export type ApiReturnType = {
   auth: ReturnType<typeof AuthApi>
-  portainer: ReturnType<typeof PortainerApi>
 }
 
 export const instance = axios.create({
@@ -12,8 +10,7 @@ export const instance = axios.create({
 
 export const api = (): ApiReturnType => {
   const apis = {
-    auth: AuthApi(instance),
-    portainer: PortainerApi(instance)
+    auth: AuthApi(instance)
   }
 
   return apis

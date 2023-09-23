@@ -1,11 +1,11 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import type { FC } from 'react'
 import TricksList from '#/components/tricks/tricks-list'
-import TricksStore from '#/store/components/tricks.store'
+// import TricksStore from '#/store/components/tricks.store'
 import { TricksStyled } from './style'
 
 const Tricks: FC = observer(() => {
-  const store = useNewStore(TricksStore)
+  // const store = useNewStore(TricksStore)
 
   useEffect(() => {
     // store.setTricks
