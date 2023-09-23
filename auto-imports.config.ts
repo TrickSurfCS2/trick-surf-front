@@ -32,4 +32,4 @@ export const configAutoImport = {
     './src/utils/router/'
   ],
   dts: './src/types/declare/auto-imports.d.ts'
-} as Options
+} satisfies Options

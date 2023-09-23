@@ -2,7 +2,7 @@ FROM node:20.6.1-slim
 
 WORKDIR /opt/trick-surf-front
 
-COPY ./source .
+COPY . .
 
 RUN npm i bun -g --quiet
 RUN bun i --ignore-scripts
