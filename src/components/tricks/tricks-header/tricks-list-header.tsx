@@ -4,7 +4,6 @@ import cn from 'classnames'
 
 import { TricksListHeaderStyled } from './style'
 
-///////////////////////////////////////////////////////////////////////////////////////////
 const TricksListHeader = () => {
   const onClickSort = (value: string) => () => {
     console.log('> sorts', value)

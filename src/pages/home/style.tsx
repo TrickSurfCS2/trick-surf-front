@@ -6,7 +6,7 @@ export const HomeStyled = styled.div`
   flex-direction: column;
   gap: 48px;
 
-  max-width: 980px;
+  max-width: ${({ theme }) => theme.sizes.content.width};
   margin: 0 auto;
 
   padding: 16px;

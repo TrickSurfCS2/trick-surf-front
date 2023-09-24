@@ -19,7 +19,8 @@ export const pxToRem = (pxValue: number, baseFontSize: number): string => {
 }
 
 const sizes = {
-  header: { height: '50px' }
+  header: { height: '50px' },
+  content: { width: '1100px' }
 }
 
 const font = {
@@ -43,7 +44,17 @@ const paletteLight = {
     secondary: 'rgba(0, 0, 0, 0.65)',
     tertiary: 'rgba(0, 0, 0, 0.45)',
     quaternary: 'rgba(0, 0, 0, 0.25)',
-    primaryInvert: '#e0e0e0'
+    primaryInvert: '#e0e0e0',
+    //
+    point: '#f59467',
+    trickName: '#4e92ff',
+    userName: '#67bbff',
+    // [Suggested]
+    pending: 'rgb(255, 184, 71)',
+    accepted: 'rgb(114, 255, 114)',
+    declined: 'rgb(255, 26, 26)',
+    //
+    header: '#e0e0e0'
   },
   bg: {
     main: '#eeeeee',
@@ -71,7 +82,17 @@ const paletteDark = {
     secondary: '#ababab',
     tertiary: '-',
     quaternary: '-',
-    primaryInvert: '#e0e0e0'
+    primaryInvert: '#e0e0e0',
+    //
+    point: '#f59467',
+    trickName: '#4e92ff',
+    userName: '#67bbff',
+    // [Suggested]
+    pending: 'rgb(255, 184, 71)',
+    accepted: 'rgb(114, 255, 114)',
+    declined: 'rgb(255, 26, 26)',
+    //
+    header: '#e0e0e0'
   },
   bg: {
     main: '#1e1f20',
@@ -99,7 +120,17 @@ const paletteBlue = {
     secondary: '#959595',
     tertiary: '-',
     quaternary: '-',
-    primaryInvert: '#e0e0e0'
+    primaryInvert: '#e0e0e0',
+    //
+    point: '#f59467',
+    trickName: '#4e92ff',
+    userName: '#67bbff',
+    // [Suggested]
+    pending: 'rgb(255, 184, 71)',
+    accepted: 'rgb(114, 255, 114)',
+    declined: 'rgb(255, 26, 26)',
+    //
+    header: '#e0e0e0'
   },
   bg: {
     main: '#0d1117',
@@ -109,7 +140,7 @@ const paletteBlue = {
     modalContent: '#141d27',
     highlight: '#6db6ff',
     header: 'linear-gradient(to top right,  #161b22, #1d242d, #161b22)',
-    headerBlur: 'rgba(24, 24, 24, 0.7)'
+    headerBlur: 'rgba(22, 27, 34, 0.7)'
   },
   border: {
     header: '#161b22',

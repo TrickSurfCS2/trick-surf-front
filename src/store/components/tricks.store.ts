@@ -1,10 +1,11 @@
-import type { Trick } from '#/types/models/trick'
+import type { Trick, Trigger } from '#/types/models/trick'
 
 interface TricksStoreState {
   isLoading: boolean
   isLoaded: boolean
 
   tricks: Trick[]
+  triggers: Trigger[]
 }
 
 export default class TricksStore {
@@ -12,7 +13,8 @@ export default class TricksStore {
     isLoading: false,
     isLoaded: false,
 
-    tricks: []
+    tricks: [],
+    triggers: []
   }
 
   constructor() {
@@ -20,19 +22,26 @@ export default class TricksStore {
   }
 
   setTricks = (value: Trick[]): Trick[] => (this.state.tricks = value)
+  setTriggers = (value: Trigger[]): Trigger[] => (this.state.triggers = value)
 
-  fetchTricks = async () => {
+  fetchTricks = async (mapId?: number) => {
     this.state.isLoading = true
     this.state.isLoaded = false
 
     try {
-      const { data } = await api.trick.v1.getTrickList()
-      this.setTricks(data)
-      this.state.isLoading = true
+      const [tricks, trigger] = await Promise.all([
+        api.trick.v1.getTrickList({ mapId }),
+        api.trigger.v1.getTriggers({ mapId })
+      ])
+
+      this.setTricks(tricks.data)
+      this.setTriggers(trigger.data)
+
+      this.state.isLoading = false
     } catch (e) {
-      // thi
+      // this
     } finally {
-      this.state.isLoaded = false
+      this.state.isLoaded = true
     }
   }
 }

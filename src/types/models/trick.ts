@@ -3,25 +3,21 @@ export interface Trick {
   id: number
   name: string
   point: number
-  velocity: number
-  dateAdd: Date
-  len: number | null
-  authorSteamid: string | null
-  completes: number | null
-  myCompletes: number | null
+  startType: number
+  totalCompletes: number | null
+  trickLength: number | null
+  createdAt: Date
+  authorSteamid64: string | null
   routeIds: string
-
-  route: Trigger[]
-  // completes: Completes[];
+  route: string
 }
 
 export interface Trigger {
   id: number
   name: string
-  alternativeName: string
-  src: string | null
-  x: number | null
-  y: number | null
-  z: number | null
+  fullName: string
+  preview: string | null
+  coords: number[]
   mapId: number
+  updatedAt: Date
 }
