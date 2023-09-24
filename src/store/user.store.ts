@@ -1,7 +1,7 @@
-import type { IUser } from '#/types/models/user.interface'
+import type { User } from '#/types/models/user'
 
 export default class UserStore {
-  private _user: IUser | null = null
+  private _user: User | null = null
 
   constructor() {
     makeAutoObservable(this)
@@ -11,7 +11,7 @@ export default class UserStore {
     return this._user
   }
 
-  setUser(user: IUser | null) {
+  setUser(user: User | null) {
     this._user = user
   }
 

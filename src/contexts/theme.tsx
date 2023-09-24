@@ -1,9 +1,10 @@
+import { observer } from 'mobx-react-lite'
 import type { Dispatch, PropsWithChildren, SetStateAction, FC } from 'react'
 
-import { ThemeProvider as ThemeEmotionProvider } from '@emotion/react'
 import { ConfigProvider as ThemeAntdProvider } from 'antd'
 import ruRU from 'antd/locale/ru_RU'
-import { observer } from 'mobx-react-lite'
+
+import { ThemeProvider as ThemeEmotionProvider } from '@emotion/react'
 
 import { getAntdThemes } from '#/utils/theme/antd-theme'
 import { getEmotionThemes } from '#/utils/theme/emotion-theme'

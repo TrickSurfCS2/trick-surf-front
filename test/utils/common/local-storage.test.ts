@@ -1,12 +1,12 @@
+import { expect, describe, it, beforeEach } from 'vitest'
+
+import { LocalStorage } from '../../../src/utils/common/local-storage'
+
 import type {
   ILocalStorageEntryName,
   ILocalStorageEntryValue,
   ILocalStorageEntryExpireAt
 } from '../../../src/utils/common/local-storage'
-
-import { expect, describe, it, beforeEach } from 'vitest'
-
-import { LocalStorage } from '../../../src/utils/common/local-storage'
 
 describe('LocalStorage class', () => {
   beforeEach(() => {

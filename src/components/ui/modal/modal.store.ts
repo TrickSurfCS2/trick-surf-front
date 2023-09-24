@@ -1,9 +1,12 @@
-﻿import type { IButtonProps } from '../button/button'
-import type { IButtonController } from '../button/button.store'
+﻿import { makeObservable, observable } from 'mobx'
 import type { ElementType, ReactNode } from 'react'
-import { makeObservable, observable } from 'mobx'
+
 import { BiLoader } from 'react-icons/bi'
+
 import { BaseDialogStore } from '../dialog/dialog.store'
+
+import type { IButtonProps } from '../button/button'
+import type { IButtonController } from '../button/button.store'
 
 export enum ModalType {
   'CONFIRM',

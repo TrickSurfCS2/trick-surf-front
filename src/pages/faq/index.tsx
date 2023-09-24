@@ -1,4 +1,5 @@
 import type { FC } from 'react'
+
 import { FaqStyled } from './style'
 
 const Faq: FC = () => {

@@ -1,6 +1,7 @@
-import { useRootStore } from '#/contexts/use-root-store'
 import AppStore from '../app.store'
 import UserStore from '../user.store'
+
+import { useRootStore } from '#/contexts/use-root-store'
 
 export interface IRootStore {
   appStore: AppStore

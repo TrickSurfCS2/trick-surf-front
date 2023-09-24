@@ -1,4 +1,5 @@
 import { useCallback, useRef } from 'react'
+
 import { useIsomorphicLayoutEffect } from './events/use-isomorphic-layout-effect'
 
 function isiOS() {

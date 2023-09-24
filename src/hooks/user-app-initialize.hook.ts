@@ -1,13 +1,17 @@
 import type { IModalController } from '#/components/ui/modal/modal.store'
 import type { TControllerRef } from '#/utils/common/utils'
 
-interface IInitialProps {
+import { updateHeadersInstances } from '#/utils'
+
+interface Props {
   modalRef: TControllerRef<IModalController>
 }
 
 // Initial setup
 //* ------------------------------------------------------------------------------------------ *//
-export const useAppInitialize = ({ modalRef }: IInitialProps): boolean => {
+export const useAppInitialize = (props: Props): boolean => {
+  const { modalRef } = props
+
   const [isInitialized, setIsInitialized] = useState<boolean>(false)
 
   const { appStore, userStore } = useAppStore()
@@ -22,10 +26,15 @@ export const useAppInitialize = ({ modalRef }: IInitialProps): boolean => {
   const initialize = async () => {
     appStore.setIsAppLoading(true)
 
+    updateHeadersInstances(() => ({
+      common: { Authorization: `Bearer ${localStorage.getItem(TOKEN_KEY)}` }
+    }))
+
+    setupBaseUrls(!/(dev|localhost)/.test(window.location.host))
+
     appStore.setModalControllerRef(modalRef)
     await userStore.me()
     appStore.setTheme(LocalStorage.getItem(THEME))
-    appStore.addAxiosInterceptors()
 
     appStore.setIsAppLoading(false)
   }

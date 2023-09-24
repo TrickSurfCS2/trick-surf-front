@@ -1,5 +1,4 @@
 import type { ClassType, ComponentClass, ErrorInfo, ReactNode } from 'react'
-
 import { Component } from 'react'
 
 export function Catch<Props extends object>(

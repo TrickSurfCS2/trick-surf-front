@@ -4,13 +4,28 @@ export const TricksListHeaderStyled = styled.div`
   width: 100%;
   border-bottom: 1px solid ${({ theme }) => theme.palette.border.content};
   position: sticky;
-  top: var(--header-height);
-  background-color: var(--color-background);
+  top: 0;
+  top: ${({ theme }) => theme.sizes.header.height};
+  background-color: ${({ theme }) => theme.palette.bg.main};
   z-index: 10;
+
+  -webkit-backdrop-filter: blur(8px) saturate(180%);
+  backdrop-filter: blur(8px) saturate(180%);
+  transition: transform 0.5s;
+
+  &::before {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 0;
+    content: '';
+    opacity: 0.5;
+  }
 
   .item {
     position: relative;
-    height: 100%;
 
     display: flex;
     flex-direction: row;
@@ -23,34 +38,39 @@ export const TricksListHeaderStyled = styled.div`
 
     cursor: pointer;
 
-    &Ind {
+    &-ind {
       width: 10%;
       min-width: 30px;
       max-width: 40px;
       font-size: 1rem;
       align-items: center;
       justify-content: center;
+      > * {
+        color: ${({ theme }) => theme.palette.text.secondary};
+      }
     }
 
-    &Tn {
+    &-tn {
       align-items: center;
 
       width: 35%;
 
-      :first-child {
-        color: var(--color-sub-text);
+      > * {
+        > :first-of-type {
+          color: ${({ theme }) => theme.palette.text.secondary};
+        }
+
+        > :last-child {
+          color: ${({ theme }) => theme.palette.text.trickName};
+        }
       }
 
-      :last-child {
-        color: var(--color-trick-name);
-      }
-
-      @include before-desktop {
+      /* @include before-desktop {
         width: 80%;
-      }
+      } */
     }
 
-    &Tp {
+    &-tp {
       width: 25%;
       align-items: center;
       justify-content: center;
@@ -59,40 +79,19 @@ export const TricksListHeaderStyled = styled.div`
         display: flex;
         align-items: center;
         flex-direction: column;
+
+        > :first-of-type {
+          color: ${({ theme }) => theme.palette.text.secondary};
+        }
+        > :last-child {
+          color: ${({ theme }) => theme.palette.text.point};
+        }
       }
 
       padding-right: 25px;
-
-      :first-child {
-        color: var(--color-sub-text);
-      }
-
-      :last-child {
-        color: var(--color-point);
-      }
     }
 
-    &Tc {
-      width: 25%;
-      align-items: center;
-      justify-content: flex-end;
-
-      :first-child {
-        color: var(--color-sub-text);
-      }
-
-      > * {
-        display: flex;
-        align-items: flex-end;
-        flex-direction: column;
-      }
-
-      @include mobile {
-        display: none;
-      }
-    }
-
-    &Mc {
+    &-tc {
       width: 25%;
       align-items: center;
       justify-content: flex-end;
@@ -101,18 +100,44 @@ export const TricksListHeaderStyled = styled.div`
         display: flex;
         align-items: flex-end;
         flex-direction: column;
+
+        > :first-of-type {
+          color: ${({ theme }) => theme.palette.text.secondary};
+        }
+        > :last-child {
+          color: ${({ theme }) => theme.palette.text.primary};
+        }
       }
 
-      :first-child {
-        color: var(--color-sub-text);
-      }
-
-      @include mobile {
+      /* @include mobile {
         display: none;
-      }
+      } */
     }
 
-    &Tl {
+    &-mc {
+      width: 25%;
+      align-items: center;
+      justify-content: flex-end;
+
+      > * {
+        display: flex;
+        align-items: flex-end;
+        flex-direction: column;
+
+        > :first-of-type {
+          color: ${({ theme }) => theme.palette.text.secondary};
+        }
+        > :last-child {
+          color: ${({ theme }) => theme.palette.text.primary};
+        }
+      }
+
+      /* @include mobile {
+        display: none;
+      } */
+    }
+
+    &-tl {
       width: 15%;
       align-items: center;
       justify-content: flex-end;
@@ -121,15 +146,18 @@ export const TricksListHeaderStyled = styled.div`
         display: flex;
         align-items: flex-end;
         flex-direction: column;
+
+        > :first-of-type {
+          color: ${({ theme }) => theme.palette.text.secondary};
+        }
+        > :last-child {
+          color: ${({ theme }) => theme.palette.text.primary};
+        }
       }
 
-      :first-child {
-        color: var(--color-sub-text);
-      }
-
-      @include mobile {
+      /* @include mobile {
         display: none;
-      }
+      } */
     }
   }
 
@@ -147,19 +175,19 @@ export const TricksListHeaderStyled = styled.div`
       opacity: 0;
     }
 
-    &Up {
-      :first-child {
+    &-up {
+      :first-of-type {
         opacity: 1;
       }
     }
 
-    &Down {
+    &-down {
       :last-child {
         opacity: 1;
       }
     }
 
-    &Active {
+    &-active {
       opacity: 1;
     }
   }

@@ -1,6 +1,8 @@
 import type { FC } from 'react'
-import { Logo } from '#/components/ui/logo/logo'
+
 import { HomeStyled } from './style'
+
+import { Logo } from '#/components/ui/logo/logo'
 
 const Home: FC = observer(() => {
   return (

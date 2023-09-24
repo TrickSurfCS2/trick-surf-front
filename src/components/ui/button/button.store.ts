@@ -1,5 +1,6 @@
-import type { IButtonProps } from './button'
 import { makeAutoObservable } from 'mobx'
+
+import type { IButtonProps } from './button'
 
 export interface IButtonController {
   getState: () => IButtonState

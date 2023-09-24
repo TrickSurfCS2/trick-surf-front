@@ -1,8 +1,10 @@
-import type { ThemeVarious } from '#/contexts/theme'
-import type { ThemeTypes } from './emotion-theme'
 import { theme } from 'antd'
 
 import { getEmotionThemes } from './emotion-theme'
+
+import type { ThemeTypes } from './emotion-theme'
+
+import type { ThemeVarious } from '#/contexts/theme'
 
 const themeAntdByEmotion = (emotion: ThemeTypes, currentTheme: ThemeVarious) => ({
   algorithm:

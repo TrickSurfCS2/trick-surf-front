@@ -1,8 +1,9 @@
-import type { NextFunction, Request, Response } from 'express'
 import path from 'path'
 
 import express from 'express'
 import { collectDefaultMetrics, register } from 'prom-client'
+
+import type { NextFunction, Request, Response } from 'express'
 
 const app = express()
 const __dirname = path.resolve()

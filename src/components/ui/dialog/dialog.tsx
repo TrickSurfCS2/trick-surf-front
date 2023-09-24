@@ -1,10 +1,14 @@
-import type { BaseDialogStore } from './dialog.store'
-import type { FC, PropsWithChildren } from 'react'
-import cn from 'classnames'
 import { observe } from 'mobx'
 import { observer } from 'mobx-react-lite'
-import { useScrollLock } from '#/hooks/use-scroll-lock'
+import type { FC, PropsWithChildren } from 'react'
+
+import cn from 'classnames'
+
 import { DialogWrapperStyled } from './dialog-wrapper.style'
+
+import type { BaseDialogStore } from './dialog.store'
+
+import { useScrollLock } from '#/hooks/use-scroll-lock'
 
 export interface IDialogProps extends PropsWithChildren {
   store: BaseDialogStore
