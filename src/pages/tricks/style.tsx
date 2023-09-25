@@ -15,6 +15,10 @@ export const TricksStyled = styled.div`
 
     overflow: hidden;
 
+    &-title {
+      font-size: 2rem;
+    }
+
     &-back {
       position: absolute;
       object-fit: cover;
@@ -25,15 +29,37 @@ export const TricksStyled = styled.div`
       height: 100%;
       filter: blur(4px);
     }
+  }
 
-    &-section {
-      width: 100vw;
-      height: 32px;
-      background-color: ${({ theme }) => theme.palette.bg.content};
+  .sections {
+    width: 100vw;
+    height: 36px;
+    background-color: ${({ theme }) => theme.palette.bg.content};
 
-      border-top: 1px solid ${({ theme }) => theme.palette.border.content};
-      border-bottom: 1px solid ${({ theme }) => theme.palette.border.content};
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &-wrapper {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      cursor: pointer;
+
+      color: ${({ theme }) => theme.palette.text.secondary};
+      max-width: ${({ theme }) => theme.sizes.content.width};
+      width: 100%;
+
+      > div {
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-size: 0.7rem;
+        font-weight: 600;
+      }
     }
+
+    border-top: 1px solid ${({ theme }) => theme.palette.border.content};
+    border-bottom: 1px solid ${({ theme }) => theme.palette.border.content};
   }
 
   .content {
@@ -44,6 +70,8 @@ export const TricksStyled = styled.div`
     max-width: ${({ theme }) => theme.sizes.content.width};
     width: 100%;
     margin: 0 auto;
+    margin-top: 32px;
+
     padding: 16px;
   }
 

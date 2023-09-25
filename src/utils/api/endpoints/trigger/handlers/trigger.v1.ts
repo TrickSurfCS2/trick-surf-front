@@ -1,6 +1,6 @@
 import type { AxiosInstance, AxiosPromise } from 'axios'
 
-import type { IGetTriggerParams } from '../types/trigger.payload'
+import type { IGetTriggerParams } from '..'
 
 import type { Trigger } from '#/types/models/trick'
 

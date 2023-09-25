@@ -2,8 +2,7 @@ import { observer } from 'mobx-react-lite'
 import type { FC } from 'react'
 
 import { GiSun, GiNightSleep } from 'react-icons/gi'
-import { IoMdRainy } from 'react-icons/io'
-import { SiDungeonsanddragons } from 'react-icons/si'
+import { IoMdRainy, IoMdMenu } from 'react-icons/io'
 
 import { HeaderStyled } from './style'
 
@@ -37,8 +36,11 @@ const Header: FC = observer(() => {
         <div>
           <ul>
             <li>
-              <SiDungeonsanddragons />
+              <IoMdMenu />
             </li>
+          </ul>
+          <ul>
+            <li>xSolare</li>
           </ul>
         </div>
         <div>

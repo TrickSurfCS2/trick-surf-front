@@ -29,11 +29,11 @@ export const useAppInitialize = (props: Props): boolean => {
     updateHeadersInstances(() => ({
       common: { Authorization: `Bearer ${localStorage.getItem(TOKEN_KEY)}` }
     }))
-
     setupBaseUrls(!/(dev|localhost)/.test(window.location.host))
 
     appStore.setModalControllerRef(modalRef)
     await userStore.me()
+    await appStore.fetchAndSetMaps()
     appStore.setTheme(LocalStorage.getItem(THEME))
 
     appStore.setIsAppLoading(false)

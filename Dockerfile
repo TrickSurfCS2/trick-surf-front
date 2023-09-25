@@ -5,7 +5,7 @@ WORKDIR /opt/trick-surf-front
 COPY . .
 
 RUN npm i bun -g --quiet
-RUN bun i --ignore-scripts
+RUN bun i --ignore-scripts --no-optional
 RUN bun run build
 
 ENV HOST 0.0.0.0

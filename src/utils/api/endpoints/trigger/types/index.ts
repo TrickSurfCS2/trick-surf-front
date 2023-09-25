@@ -1,1 +1,1 @@
-// export * from './trick.payload'
+export * from './trigger.payload'

@@ -1,12 +1,13 @@
 import type { FC, PropsWithChildren } from 'react'
-import { useEffect } from 'react'
+import { Fragment, useEffect } from 'react'
+
+import { AppStyled } from './app.style'
 
 import Header from '#/components/header/header'
-import { DefaultStyled } from '#/components/layouts/default/default.style'
 
 // Default layout
 //* ------------------------------------------------------------------------------------------ *//
-const DefaultLayout: FC<PropsWithChildren> = ({ children }) => {
+const AppLayout: FC<PropsWithChildren> = ({ children }) => {
   const { appStore } = useAppStore()
 
   useEffect(() => {
@@ -17,10 +18,11 @@ const DefaultLayout: FC<PropsWithChildren> = ({ children }) => {
   }, [])
 
   return (
-    <>
-      <DefaultStyled>{children}</DefaultStyled>
+    <Fragment>
+      <AppStyled>{children}</AppStyled>
       <Header />
-    </>
+    </Fragment>
   )
 }
-export default DefaultLayout
+
+export default AppLayout

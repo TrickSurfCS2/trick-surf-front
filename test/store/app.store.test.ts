@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { expect, describe, it } from 'vitest'
 
-import type { IScrollRecord } from '#/store/app.store'
+import type { ScrollRecord } from '#/store/app.store'
 import AppStore from '#/store/app.store'
 
 describe('AppStore', () => {
@@ -21,7 +21,7 @@ describe('AppStore', () => {
 
   describe('setScroll', () => {
     it('should set the scroll position', () => {
-      const scroll = { dir: 'down', pos: 100 } as IScrollRecord
+      const scroll = { dir: 'down', pos: 100 } as ScrollRecord
       appStore.setScroll(scroll)
       expect(appStore.state.scroll).toEqual(scroll)
     })

@@ -1,12 +1,15 @@
 import type { IModalController } from '#/components/ui/modal/modal.store'
 import type { ThemeVarious } from '#/contexts/theme'
+import type { Map } from '#/types/models/map'
 import type { TControllerRef } from '#/utils/common/utils'
 
-interface IAppStoreState {
+interface AppStoreState {
   theme: ThemeVarious
-  scroll: IScrollRecord
-  viewport: IViewportRecord
+  scroll: ScrollRecord
+  viewport: ViewportRecord
   mediaType: 'screen' | 'print'
+  selectedMap: Map
+  maps: Map[]
   isAppLoading: boolean
 }
 
@@ -14,11 +17,13 @@ interface IAppStoreState {
 export default class AppStore {
   private _modalDialogControllerRef = {} as TControllerRef<IModalController>
 
-  state: IAppStoreState = {
-    theme: 'light',
-    scroll: {} as IScrollRecord,
-    viewport: {} as IViewportRecord,
+  state: AppStoreState = {
+    theme: 'blue',
+    scroll: {} as ScrollRecord,
+    viewport: {} as ViewportRecord,
     mediaType: 'screen',
+    selectedMap: {} as Map,
+    maps: [],
     isAppLoading: true
   }
 
@@ -28,7 +33,10 @@ export default class AppStore {
       setScroll: action,
       setViewport: action,
       setTheme: action,
+      findAndSetMap: action,
+      fetchAndSetMaps: action,
       // ~ computed
+      map: computed,
       headerOpacity: computed,
       isOverFirstScreenHeight: computed,
       isOverPostTitleHeight: computed,
@@ -40,22 +48,25 @@ export default class AppStore {
   }
 
   setIsAppLoading = (value: boolean): boolean => (this.state.isAppLoading = value)
-  setScroll = (scroll: IScrollRecord): IScrollRecord => (this.state.scroll = scroll)
-  setViewport = (viewport: IViewportRecord): IViewportRecord => (this.state.viewport = viewport)
+  setScroll = (scroll: ScrollRecord): ScrollRecord => (this.state.scroll = scroll)
+  setViewport = (viewport: ViewportRecord): ViewportRecord => (this.state.viewport = viewport)
+  findAndSetMap = (name?: string): Map =>
+    (this.state.selectedMap = this.state.maps.find((f) => f.name === name) ?? this.state.maps[0])
   setTheme = (themeType: ThemeVarious | null): ThemeVarious => {
-    localStorage.setItem(THEME, themeType || 'light')
-    return (this.state.theme = themeType || 'light')
+    localStorage.setItem(THEME, themeType || 'blue')
+    return (this.state.theme = themeType || 'blue')
   }
+
   setModalControllerRef = (
     ref: TControllerRef<IModalController>
-  ): TControllerRef<IModalController> => (this._modalDialogControllerRef = ref)
+  ): TControllerRef<IModalController> => {
+    return (this._modalDialogControllerRef = ref)
+  }
 
   updateScroll(): void {
-    const { pageYOffset } = window
-
     this.setScroll({
       dir: null,
-      pos: pageYOffset
+      pos: window.pageYOffset
     })
   }
 
@@ -88,6 +99,16 @@ export default class AppStore {
     const arr: ThemeVarious[] = ['blue', 'light', 'dark']
     const i = arr.indexOf(this.state.theme)
     this.setTheme(arr[i === arr.length - 1 ? 0 : i + 1])
+  }
+
+  fetchAndSetMaps = async (): Promise<void> => {
+    const { data } = await api.map.v1.getMaps()
+    this.state.maps = data
+  }
+
+  get map(): Map {
+    const { selectedMap } = this.state
+    return selectedMap
   }
 
   get headerOpacity(): number {
@@ -139,7 +160,7 @@ export default class AppStore {
 
 //* ---- Types ------------------------------------------------------------- *//
 
-export interface IViewportRecord {
+export interface ViewportRecord {
   w: number
   h: number
   mobile: boolean
@@ -149,7 +170,7 @@ export interface IViewportRecord {
   widest: boolean
 }
 
-export interface IScrollRecord {
+export interface ScrollRecord {
   dir: 'up' | 'down' | null
   pos: number
 }

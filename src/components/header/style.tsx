@@ -29,6 +29,10 @@ export const HeaderStyled = styled.header<IHeaderStyledProps>`
     flex-direction: row;
     justify-content: space-between;
 
+    > div {
+      display: flex;
+    }
+
     &::before {
       position: absolute;
       top: 0;

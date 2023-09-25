@@ -1,5 +1,5 @@
 import ErrorBoundary from '#/components/error/error-boundary'
-import DefaultLayout from '#/components/layouts/default/default.layout'
+import AppLayout from '#/components/layouts/app/app.layout'
 import { Modal } from '#/components/ui/modal/modal'
 import type { IModalController } from '#/components/ui/modal/modal.store'
 import { RootStoreProvider } from '#/contexts/root-store'
@@ -27,9 +27,9 @@ const AppContent = observer(() => {
   return (
     <>
       {!!isInit && (
-        <DefaultLayout>
+        <AppLayout>
           <AppRoutes />
-        </DefaultLayout>
+        </AppLayout>
       )}
       <Modal controllerRef={modalRef} />
     </>

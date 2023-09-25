@@ -1,4 +1,4 @@
-export const DefaultStyled = styled.main`
+export const AppStyled = styled.main`
   position: relative;
   z-index: 3;
 
