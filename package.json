@@ -12,6 +12,7 @@
     "pnpm": ">=8.x",
     "bun": ">=1.x"
   },
+  "packageManager": "bun@1.0.3",
   "scripts": {
     "dev": "vite",
     "start": "node --loader ts-node/esm server/server.ts",
