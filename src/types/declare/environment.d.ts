@@ -4,8 +4,8 @@ declare global {
   namespace NodeJS {
     interface ProcessEnv {
       JWT_HEADER?: string
-      API_URL_PROD?: string
-      API_URL_DEV?: string
+      VITE_API_URL_PROD?: string
+      VITE_API_URL_DEV?: string
     }
   }
 }

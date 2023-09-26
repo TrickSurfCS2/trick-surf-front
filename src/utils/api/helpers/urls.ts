@@ -1,22 +1,22 @@
 import type { Endpoints } from '#/types/common'
 import { Apis } from '#/types/common'
 
-const API_URL_PROD = import.meta.env.API_URL_PROD ?? 'http://localhost:8080'
-const API_URL_DEV = import.meta.env.API_URL_DEV ?? 'https://api.xsolare.pro'
+const VITE_API_URL_PROD = import.meta.env.VITE_API_URL_PROD ?? 'http://localhost:8080'
+const VITE_API_URL_DEV = import.meta.env.VITE_API_URL_DEV ?? 'https://api.xsolare.pro'
 
 export const urls: Endpoints = {
   development: {
-    [Apis.Static]: API_URL_DEV,
-    [Apis.Map]: API_URL_DEV,
-    [Apis.Auth]: API_URL_DEV,
-    [Apis.Trick]: API_URL_DEV,
-    [Apis.Trigger]: API_URL_DEV
+    [Apis.Static]: VITE_API_URL_DEV,
+    [Apis.Map]: VITE_API_URL_DEV,
+    [Apis.Auth]: VITE_API_URL_DEV,
+    [Apis.Trick]: VITE_API_URL_DEV,
+    [Apis.Trigger]: VITE_API_URL_DEV
   },
   production: {
-    [Apis.Static]: API_URL_PROD,
-    [Apis.Map]: API_URL_PROD,
-    [Apis.Auth]: API_URL_PROD,
-    [Apis.Trick]: API_URL_PROD,
-    [Apis.Trigger]: API_URL_PROD
+    [Apis.Static]: VITE_API_URL_PROD,
+    [Apis.Map]: VITE_API_URL_PROD,
+    [Apis.Auth]: VITE_API_URL_PROD,
+    [Apis.Trick]: VITE_API_URL_PROD,
+    [Apis.Trigger]: VITE_API_URL_PROD
   }
 }
