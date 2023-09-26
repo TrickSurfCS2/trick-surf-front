@@ -10,21 +10,21 @@ import { Dialog } from '../dialog/dialog'
 import { ModalStore } from './modal.store'
 import { ModalStyled } from './modal.style'
 
-import type { IModalController } from './modal.store'
+import type { ModalController } from './modal.store'
 
 import { setController, useNewStore } from '#/utils/common/stores'
 import type { TControllerRef } from '#/utils/common/utils'
 
-interface IModalProps {
-  controllerRef: TControllerRef<IModalController>
+interface ModalProps {
+  controllerRef: TControllerRef<ModalController>
   zIndex?: number
 }
 
-const Modal: FC<IModalProps> = observer(({ controllerRef, zIndex = 999 }) => {
+const Modal: FC<ModalProps> = observer(({ controllerRef, zIndex = 999 }) => {
   const store = useNewStore(ModalStore)
 
   if (!controllerRef) {
-    controllerRef = useRef<IModalController>()
+    controllerRef = useRef<ModalController>()
   }
   setController(store, controllerRef)
 

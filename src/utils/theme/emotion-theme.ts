@@ -20,6 +20,7 @@ export const pxToRem = (pxValue: number, baseFontSize: number): string => {
 
 const sizes = {
   header: { height: '50px' },
+  footer: { height: '60px' },
   content: { width: '1100px' }
 }
 
@@ -27,7 +28,7 @@ const font = {
   family: {
     base: 'Rubik, sans-serif',
     monospace: `
-    "sfmono-regular, menlo, monaco, consolas, 'Liberation Mono', 'Courier New'"
+      "sfmono-regular, menlo, monaco, consolas, 'Liberation Mono', 'Courier New'"
     `,
     text: 'Rubik'
   },
@@ -45,7 +46,7 @@ const paletteLight = {
     tertiary: 'rgba(0, 0, 0, 0.45)',
     quaternary: 'rgba(0, 0, 0, 0.25)',
     primaryInvert: '#e0e0e0',
-    //
+    // [Surf]
     point: '#f59467',
     trickName: '#4e92ff',
     userName: '#67bbff',
@@ -63,8 +64,9 @@ const paletteLight = {
     modal: '#333',
     modalContent: '#444',
     highlight: '#6db6ff',
-    header: 'linear-gradient(to top right,  #232325, #292929, #232325)',
-    headerBlur: 'rgba(24, 24, 24, 0.7)'
+    // [Header]
+    header: '#232325',
+    headerBlur: 'rgba(24, 24, 24, 0.8)'
   },
   border: {
     header: '#7e7e7e',
@@ -83,7 +85,7 @@ const paletteDark = {
     tertiary: '-',
     quaternary: '-',
     primaryInvert: '#e0e0e0',
-    //
+    // [Surf]
     point: '#f59467',
     trickName: '#4e92ff',
     userName: '#67bbff',
@@ -91,7 +93,7 @@ const paletteDark = {
     pending: 'rgb(255, 184, 71)',
     accepted: 'rgb(114, 255, 114)',
     declined: 'rgb(255, 26, 26)',
-    //
+    // [Header]
     header: '#e0e0e0'
   },
   bg: {
@@ -101,8 +103,9 @@ const paletteDark = {
     modal: '#333',
     modalContent: '#444',
     highlight: '#f65341',
-    header: 'linear-gradient(to top right,  #232325, #292929, #232325)',
-    headerBlur: 'rgba(24, 24, 24, 0.7)'
+    // [Header]
+    header: '#292929',
+    headerBlur: 'rgba(24, 24, 24, 0.8)'
   },
   border: {
     header: '#474747',
@@ -121,7 +124,7 @@ const paletteBlue = {
     tertiary: '-',
     quaternary: '-',
     primaryInvert: '#e0e0e0',
-    //
+    // [Surf]
     point: '#f59467',
     trickName: '#4e92ff',
     userName: '#67bbff',
@@ -129,7 +132,7 @@ const paletteBlue = {
     pending: 'rgb(255, 184, 71)',
     accepted: 'rgb(114, 255, 114)',
     declined: 'rgb(255, 26, 26)',
-    //
+    // [Header]
     header: '#e0e0e0'
   },
   bg: {
@@ -139,8 +142,9 @@ const paletteBlue = {
     modal: '#1b222c',
     modalContent: '#141d27',
     highlight: '#6db6ff',
-    header: 'linear-gradient(to top right,  #161b22, #1d242d, #161b22)',
-    headerBlur: 'rgba(22, 27, 34, 0.7)'
+    // [Header]
+    header: '#1d242d',
+    headerBlur: 'rgba(22, 27, 34, 0.8)'
   },
   border: {
     header: '#161b22',

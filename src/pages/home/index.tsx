@@ -4,6 +4,8 @@ import { HomeStyled } from './style'
 
 import { Logo } from '#/components/ui/logo/logo'
 
+// Home page
+//* ------------------------------------------------------------------------------------------ *//
 const Home: FC = observer(() => {
   return (
     <HomeStyled>
