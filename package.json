@@ -4,11 +4,9 @@
   "type": "module",
   "private": true,
   "version": "1.0.0",
-  "author": {
-    "name": "Ivan Kornilov",
-    "email": "ivan.kornilov@nordclan.com",
-    "url": "https://t.me/xsolncu"
-  },
+  "contributors": [
+    "Ivan Kornilov"
+  ],
   "engines": {
     "node": ">=20.x",
     "pnpm": ">=8.x",

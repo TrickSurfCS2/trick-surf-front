@@ -7,6 +7,6 @@ export enum Apis {
 }
 
 export interface Endpoints {
-  development: Record<Apis, string>
-  production: Record<Apis, string>
+  development: string
+  production: string
 }

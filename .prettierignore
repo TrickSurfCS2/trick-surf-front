@@ -109,3 +109,4 @@ vite.config.ts
 vitest.config.ts
 vitest/before-all.ts
 vitest/setup.ts
+*.d.ts

@@ -1,7 +1,5 @@
-import { Apis } from '#/types/common'
+import { instance } from '#/utils/api'
 
 export const getFullImageUrl = (value: string) => {
-  const instance = getInstance(Apis.Static)
-
   return `${instance?.defaults.baseURL}${value}`
 }

@@ -1,7 +1,7 @@
 import type { IModalController } from '#/components/ui/modal/modal.store'
 import type { TControllerRef } from '#/utils/common/utils'
 
-import { updateHeadersInstances } from '#/utils'
+import { setHeadersInstance } from '#/utils'
 
 interface Props {
   modalRef: TControllerRef<IModalController>
@@ -26,10 +26,10 @@ export const useAppInitialize = (props: Props): boolean => {
   const initialize = async () => {
     appStore.setIsAppLoading(true)
 
-    updateHeadersInstances(() => ({
+    setHeadersInstance({
       common: { Authorization: `Bearer ${localStorage.getItem(TOKEN_KEY)}` }
-    }))
-    setupBaseUrls(!/(dev|localhost)/.test(window.location.host))
+    })
+    setupBaseUrl(!/(dev|localhost)/.test(window.location.host))
 
     appStore.setModalControllerRef(modalRef)
     await userStore.me()
