@@ -1,9 +1,11 @@
 import { Routes, Route } from 'react-router-dom'
 
 import TricksLayout from '#/components/layouts/tricks/tricks.layout'
+import Records from '#/pages/[map]/records'
+import Tricks from '#/pages/[map]/tricks'
+import Triggers from '#/pages/[map]/triggers'
 import FAQ from '#/pages/faq'
 import Home from '#/pages/home'
-import Tricks from '#/pages/tricks'
 
 export const AppRoutes = () => (
   <Routes>
@@ -21,15 +23,15 @@ export const AppRoutes = () => (
         path="triggers"
         element={
           <TricksLayout>
-            <Tricks />
+            <Triggers />
           </TricksLayout>
         }
       />
       <Route
-        path="record-beat"
+        path="records"
         element={
           <TricksLayout>
-            <Tricks />
+            <Records />
           </TricksLayout>
         }
       />

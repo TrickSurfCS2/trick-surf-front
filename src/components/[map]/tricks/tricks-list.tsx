@@ -1,3 +1,5 @@
+import { Fragment } from 'react'
+
 import { TricksListStyled } from './style'
 import TricksListHeader from './tricks-header/tricks-list-header'
 import TricksItem from './tricks-item/tricks-item'
@@ -15,16 +17,16 @@ const TricksList = observer((props: Props) => {
   const { tricks, triggers, isLoading } = props
 
   return (
-    <TricksListStyled>
+    <Fragment>
       <TricksListHeader />
       {isLoading ? (
         <Loader />
       ) : (
-        <div>
+        <TricksListStyled>
           {tricks?.map((trick) => <TricksItem key={trick.id} trick={trick} triggers={triggers} />)}
-        </div>
+        </TricksListStyled>
       )}
-    </TricksListStyled>
+    </Fragment>
   )
 })
 

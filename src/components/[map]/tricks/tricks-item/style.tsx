@@ -186,21 +186,12 @@ export const TricksItemsStyled = styled.div`
     &-img {
       user-select: none;
       height: 100%;
-      width: 100%;
       overflow: hidden;
       display: flex;
       align-items: center;
       justify-content: center;
       height: 210px;
       cursor: pointer;
-
-      /* @include tablet {
-        height: 180px;
-      }
-
-      @include mobile {
-        height: 150px;
-      } */
     }
 
     &-count {
