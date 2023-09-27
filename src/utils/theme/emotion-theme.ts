@@ -1,4 +1,9 @@
+import { paletteBlue } from './pallete/blue'
+import { paletteDark } from './pallete/dark'
+import { paletteLight } from './pallete/light'
+
 import type { ThemeVarious } from '#/contexts/theme'
+export type ThemeTypes = typeof themeLigth
 
 const Breakpoints = {
   xs: 0,
@@ -16,6 +21,13 @@ export const breakpoint = (n: keyof typeof Breakpoints, size?: 'min' | 'max'): s
 
 export const pxToRem = (pxValue: number, baseFontSize: number): string => {
   return `${pxValue / baseFontSize || 16}rem`
+}
+
+const borderRadius = {
+  X: 2,
+  S: 4,
+  M: 6,
+  L: 8
 }
 
 const sizes = {
@@ -39,129 +51,11 @@ const font = {
   }
 }
 
-const paletteLight = {
-  text: {
-    primary: 'rgba(0, 0, 0, 0.88)',
-    secondary: 'rgba(0, 0, 0, 0.65)',
-    tertiary: 'rgba(0, 0, 0, 0.45)',
-    quaternary: 'rgba(0, 0, 0, 0.25)',
-    primaryInvert: '#e0e0e0',
-    // [Surf]
-    point: '#f59467',
-    trickName: '#4e92ff',
-    userName: '#67bbff',
-    // [Suggested]
-    pending: 'rgb(255, 184, 71)',
-    accepted: 'rgb(114, 255, 114)',
-    declined: 'rgb(255, 26, 26)',
-    //
-    header: '#e0e0e0'
-  },
-  bg: {
-    main: '#eeeeee',
-    content: '#e4e4e4',
-    contentItem: '#d8d8d8',
-    modal: '#333',
-    modalContent: '#444',
-    highlight: '#6db6ff',
-    // [Header]
-    header: '#232325',
-    headerBlur: 'rgba(24, 24, 24, 0.8)'
-  },
-  border: {
-    header: '#7e7e7e',
-    title: '#161b22',
-    content: '#7e7e7e'
-  },
-  shadow: {
-    itemContent: '0 0 5px rgba(0, 0, 0, 0.25)'
-  }
-}
-
-const paletteDark = {
-  text: {
-    primary: '#e4e4e4',
-    secondary: '#ababab',
-    tertiary: '-',
-    quaternary: '-',
-    primaryInvert: '#e0e0e0',
-    // [Surf]
-    point: '#f59467',
-    trickName: '#4e92ff',
-    userName: '#67bbff',
-    // [Suggested]
-    pending: 'rgb(255, 184, 71)',
-    accepted: 'rgb(114, 255, 114)',
-    declined: 'rgb(255, 26, 26)',
-    // [Header]
-    header: '#e0e0e0'
-  },
-  bg: {
-    main: '#1e1f20',
-    content: '#17181a',
-    contentItem: '#141416',
-    modal: '#333',
-    modalContent: '#444',
-    highlight: '#f65341',
-    // [Header]
-    header: '#292929',
-    headerBlur: 'rgba(24, 24, 24, 0.8)'
-  },
-  border: {
-    header: '#474747',
-    title: '#6c757d',
-    content: '#474747'
-  },
-  shadow: {
-    itemContent: '0 0 5px rgba(0, 0, 0, 0.25)'
-  }
-}
-
-const paletteBlue = {
-  text: {
-    primary: '#e4e4e4',
-    secondary: '#959595',
-    tertiary: '-',
-    quaternary: '-',
-    primaryInvert: '#e0e0e0',
-    // [Surf]
-    point: '#f59467',
-    trickName: '#4e92ff',
-    userName: '#67bbff',
-    // [Suggested]
-    pending: 'rgb(255, 184, 71)',
-    accepted: 'rgb(114, 255, 114)',
-    declined: 'rgb(255, 26, 26)',
-    // [Header]
-    header: '#e0e0e0'
-  },
-  bg: {
-    main: '#0d1117',
-    content: '#161b22',
-    contentItem: '#12161b',
-    modal: '#1b222c',
-    modalContent: '#141d27',
-    highlight: '#6db6ff',
-    // [Header]
-    header: '#1d242d',
-    headerBlur: 'rgba(22, 27, 34, 0.8)'
-  },
-  border: {
-    header: '#161b22',
-    title: '#5d6a7e',
-    content: '#253241'
-  },
-  shadow: {
-    itemContent: '0 0 5px rgba(0, 0, 0, 0.25)'
-  }
-}
-
-export type ThemeTypes = typeof themeLigth
-
 export const themeLigth = {
   palette: paletteLight,
   font,
-  sizes
+  sizes,
+  borderRadius
 }
 
 export const themeDark: ThemeTypes = {
@@ -187,3 +81,57 @@ export const emotionThemes: Record<string, ThemeTypes> = {
 }
 
 export const getEmotionThemes = (theme: ThemeVarious): ThemeTypes => emotionThemes[theme]
+
+export const color = {
+  brand: {
+    bg: '#e6f4ff',
+    bgHover: '#bae0ff',
+    border: '#91caff',
+    borderHover: '#69b1ff',
+    hover: '#4096ff',
+    primary: '#1677ff',
+    active: '#0958d9',
+    textHover: '#4096ff',
+    text: '#1677ff',
+    textActive: '#0958d9'
+  },
+  text: {
+    primary: 'rgba(0, 0, 0, 0.88)',
+    secondary: 'rgba(0, 0, 0, 0.65)',
+    tertiary: 'rgba(0, 0, 0, 0.45)',
+    quaternary: 'rgba(0, 0, 0, 0.25)',
+    primaryInvert: '#e0e0e0',
+    // [Surf]
+    point: '#f59467',
+    trickName: '#4e92ff',
+    userName: '#67bbff'
+  },
+  bg: {
+    layout: '#eeeeee',
+    container: '#e4e4e4',
+    containerItem: '#d8d8d8',
+    elevated: '#333',
+    spotlight: 'rgba(0, 0, 0, 0.85)',
+    highlight: '#6db6ff'
+  },
+  fill: {
+    primary: 'rgba(0, 0, 0, 0.15)',
+    secondary: 'rgba(0, 0, 0, 0.06)',
+    tertiary: 'rgba(0, 0, 0, 0.04)',
+    quaternary: 'rgba(0, 0, 0, 0.02)'
+  },
+  border: {
+    primary: '#d9d9d9',
+    secondary: '#f0f0f0'
+  },
+  link: {
+    hover: '#69b1ff',
+    active: '#0958d9'
+  },
+  boxShadow: {
+    primary:
+      '0 6px 16px 0 rgba(0, 0, 0, 0.08), 0 3px 6px -4px rgba(0, 0, 0, 0.12), 0 9px 28px 8px rgba(0, 0, 0, 0.05)',
+    secondary:
+      '0 6px 16px 0 rgba(0, 0, 0, 0.08), 0 3px 6px -4px rgba(0, 0, 0, 0.12), 0 9px 28px 8px rgba(0, 0, 0, 0.05)'
+  }
+}
