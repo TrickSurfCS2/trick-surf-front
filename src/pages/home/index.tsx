@@ -5,6 +5,8 @@ import { HomeStyled } from './style'
 import ModelViewer from '#/components/scene/model-viewer'
 // import { Logo } from '#/components/ui/logo/logo'
 
+// Home page
+//* ------------------------------------------------------------------------------------------ *//
 const Home: FC = observer(() => {
   return (
     <HomeStyled>

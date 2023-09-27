@@ -7,20 +7,20 @@ import cn from 'classnames'
 import { ButtonStore } from './button.store'
 import { ButtonStyled } from './button.style'
 
-import type { IButtonController } from './button.store'
+import type { ButtonController } from './button.store'
 
 import { setController, useNewStore } from '#/utils/common/stores'
 import type { TControllerRef } from '#/utils/common/utils'
 
-export interface IButtonProps {
-  onClick: (controller: IButtonController, e: React.MouseEvent) => void
+export interface ButtonProps {
+  onClick: (controller: ButtonController, e: React.MouseEvent) => void
   text?: string
-  controllerRef?: TControllerRef<IButtonController>
+  controllerRef?: TControllerRef<ButtonController>
   className?: string
 }
 
 export const Button = observer(
-  forwardRef(function Button(props: IButtonProps, ref: ForwardedRef<HTMLButtonElement>) {
+  forwardRef(function Button(props: ButtonProps, ref: ForwardedRef<HTMLButtonElement>) {
     const { controllerRef, ...rest } = props
 
     const store = useNewStore(ButtonStore, rest)

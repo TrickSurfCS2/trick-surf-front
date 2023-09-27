@@ -15,6 +15,7 @@ export const HeaderStyled = styled.header<IHeaderStyledProps>`
   -webkit-backdrop-filter: blur(8px) saturate(180%);
   backdrop-filter: blur(8px) saturate(180%);
   transition: transform 0.5s;
+  user-select: none;
 
   left: 0;
   top: 0;
@@ -39,7 +40,7 @@ export const HeaderStyled = styled.header<IHeaderStyledProps>`
       right: 0;
       bottom: 0;
       left: 0;
-      background-image: ${({ theme }) => theme.palette.bg.header};
+      background: ${({ theme }) => theme.palette.bg.header};
       z-index: 0;
       content: '';
       opacity: ${({ opacity }) => opacity};

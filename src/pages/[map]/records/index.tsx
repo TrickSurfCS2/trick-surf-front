@@ -5,6 +5,8 @@ import Helmet from 'react-helmet'
 
 import { RecordsStyled } from './style'
 
+// Records page
+//* ------------------------------------------------------------------------------------------ *//
 const Records: FC = observer(() => {
   const store = useAppStore()
 

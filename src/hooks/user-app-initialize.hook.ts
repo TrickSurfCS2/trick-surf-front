@@ -1,10 +1,10 @@
-import type { IModalController } from '#/components/ui/modal/modal.store'
+import type { ModalController } from '#/components/ui/modal/modal.store'
 import type { TControllerRef } from '#/utils/common/utils'
 
 import { setHeadersInstance } from '#/utils'
 
 interface Props {
-  modalRef: TControllerRef<IModalController>
+  modalRef: TControllerRef<ModalController>
 }
 
 // Initial setup

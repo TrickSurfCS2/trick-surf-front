@@ -1,12 +1,14 @@
 import ErrorBoundary from '#/components/error/error-boundary'
 import AppLayout from '#/components/layouts/app/app.layout'
 import { Modal } from '#/components/ui/modal/modal'
-import type { IModalController } from '#/components/ui/modal/modal.store'
+import type { ModalController } from '#/components/ui/modal/modal.store'
 import { RootStoreProvider } from '#/contexts/root-store'
 import ThemeProvider from '#/contexts/theme'
 import { useAppInitialize } from '#/hooks/user-app-initialize.hook'
 import { AppRoutes } from '#/utils/router'
 
+// App
+//* ------------------------------------------------------------------------------------------ *//
 const App = () => (
   <RootStoreProvider>
     <ErrorBoundary componentName="-">
@@ -19,8 +21,10 @@ const App = () => (
 
 export default App
 
+// App content page
+//* ------------------------------------------------------------------------------------------ *//
 const AppContent = observer(() => {
-  const modalRef = useRef<IModalController>()
+  const modalRef = useRef<ModalController>()
 
   const isInit = useAppInitialize({ modalRef })
 

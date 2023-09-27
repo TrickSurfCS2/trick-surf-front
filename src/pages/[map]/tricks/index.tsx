@@ -4,6 +4,8 @@ import { TricksStyled } from './style'
 
 import TricksList from '#/components/[map]/tricks/tricks-list'
 
+// Tricks page
+//* ------------------------------------------------------------------------------------------ *//
 const Tricks: FC = observer(() => {
   const store = useAppStore()
   const { isLoading, tricks, triggers } = store.tricksStore.state

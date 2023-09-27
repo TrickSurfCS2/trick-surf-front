@@ -8,4 +8,5 @@ export const AppStyled = styled.main`
   color: ${({ theme }) => theme.palette.text.primary};
 
   padding-top: ${({ theme }) => theme.sizes.header.height};
+  padding-bottom: 50px;
 `

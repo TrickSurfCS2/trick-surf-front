@@ -7,6 +7,8 @@ import { TriggersStyled } from './style'
 
 import TriggersList from '#/components/[map]/triggers/triggers-list'
 
+// Triggers page
+//* ------------------------------------------------------------------------------------------ *//
 const Triggers: FC = observer(() => {
   const store = useAppStore()
 

@@ -44,7 +44,8 @@ export class BaseDialogStore {
 
   setIsLock = (isLock: boolean): boolean => (this.__state.isLock = isLock)
 
-  switchVisible = (): void => (this.__state.isVisible ? this.hideDialog() : this.showDialog())
+  switchVisible = (withoutLock?: boolean): void =>
+    this.__state.isVisible ? this.hideDialog(withoutLock) : this.showDialog()
 
   lockDialog = (): void => {
     this.setIsLock(true)

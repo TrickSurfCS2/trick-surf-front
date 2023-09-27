@@ -3,12 +3,17 @@ import { Fragment, useEffect } from 'react'
 
 import { AppStyled } from './app.style'
 
-import Header from '#/components/header/header'
+import Footer from '#/components/footer'
+import Header from '#/components/header'
+import { Panel } from '#/components/ui/panel/panel'
+import { PanelStore } from '#/components/ui/panel/panel.store'
 
-// Default layout
+// App layout
 //* ------------------------------------------------------------------------------------------ *//
 const AppLayout: FC<PropsWithChildren> = ({ children }) => {
   const { appStore } = useAppStore()
+  const store = useNewStore(PanelStore)
+  const headerRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     appStore.updateViewport()
@@ -20,7 +25,9 @@ const AppLayout: FC<PropsWithChildren> = ({ children }) => {
   return (
     <Fragment>
       <AppStyled>{children}</AppStyled>
-      <Header />
+      <Header ref={headerRef} onMenuClick={() => store.switchVisible(true)} />
+      <Panel store={store} ignoredRefsOutsideClick={[headerRef]} />
+      <Footer />
     </Fragment>
   )
 }

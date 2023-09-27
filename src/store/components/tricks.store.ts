@@ -18,6 +18,12 @@ export default class TricksStore {
   }
 
   constructor() {
+    makeObservable(this, {
+      setTricks: action,
+      setTriggers: action,
+      fetchTricks: action
+    })
+
     makeAutoObservable(this.state)
   }
 
