@@ -2,13 +2,14 @@ import type { FC } from 'react'
 
 import { HomeStyled } from './style'
 
-import { Logo } from '#/components/ui/logo/logo'
+import ModelViewer from '#/components/scene/model-viewer'
+// import { Logo } from '#/components/ui/logo/logo'
 
 const Home: FC = observer(() => {
   return (
     <HomeStyled>
-      <Logo />
-      <div />
+      {/* <Logo /> */}
+      <ModelViewer />
     </HomeStyled>
   )
 })

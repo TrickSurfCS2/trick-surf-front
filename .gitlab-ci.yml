@@ -1,0 +1,10 @@
+include:
+  - project: 'tools/ci-cd'
+    ref: 'master'
+    file: '/.stand.v1.gitlab-ci.yml'
+  - project: 'tools/ci-fe'
+    ref: 'master'
+    file: '/.npm-auth.gitlab-ci.yml'
+
+variables:
+  SOURCE_DIR: '.'
