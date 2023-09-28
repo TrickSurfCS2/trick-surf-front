@@ -1,6 +1,5 @@
 stages:
   - install_deps
-  - test
   - build
   - package
 
@@ -9,29 +8,43 @@ default:
   before_script:
     - npm i bun -g --quiet
 
+# Caches
+.node_modules-cache: &node_modules-cache
+  key:
+    files:
+      - bun.lockb
+  paths:
+    - node_modules
+  policy: pull
+
+.bun-cache: &bun-cache
+  key: bun-$CI_JOB_IMAGE
+  paths:
+    - ~/.bun/install/cache
+
+.build-cache: &build-cache
+  key: build-$CI_JOB_IMAGE
+  paths:
+    - .cache
+  policy: pull-push
+
+# Jobs
 Install Dependencies:
   stage: install_deps
-  cache:
-    key:
-      files:
-        - bun.lockb
-    paths:
-      - node_modules
-    policy: pull-push
   script:
-    - bun i
+    - bun install
+  cache:
+    - <<: *node_modules-cache
+      policy: pull-push
+    - <<: *bun-cache
 
 Build:
   stage: build
-  cache:
-    key:
-      files:
-        - bun.lockb
-    paths:
-      - node_modules
-    policy: pull
   script:
     - bun run build
+  cache:
+    - <<: *node_modules-cache
+    - <<: *build-cache
   artifacts:
     paths:
       - public
