@@ -2,7 +2,7 @@ import { useRef } from 'react'
 
 import { Center, Environment, CameraControls } from '@react-three/drei'
 import { useThree } from '@react-three/fiber'
-import { useControls, button, buttonGroup, folder } from 'leva'
+import { useControls, button, buttonGroup } from 'leva'
 import * as THREE from 'three'
 
 import { Ground } from './scene-segment/ground'
@@ -61,15 +61,6 @@ const Scene = () => {
         }
       }),
       minDistance: { value: 0 },
-      setPosition: folder(
-        {
-          vec2: { value: [-5, 2, 1], label: 'vec' },
-          'setPosition(…vec)': button(
-            (get) => cameraControlsRef.current?.setPosition(...get('setPosition.vec2'), true)
-          )
-        },
-        { collapsed: true }
-      ),
       saveState: button(() => cameraControlsRef.current?.saveState()),
       reset: button(() => cameraControlsRef.current?.reset(true)),
       enabled: { value: true, label: 'controls on' },

@@ -1,10 +1,35 @@
-include:
-  - project: 'tools/ci-cd'
-    ref: 'master'
-    file: '/.stand.v1.gitlab-ci.yml'
-  - project: 'tools/ci-fe'
-    ref: 'master'
-    file: '/.npm-auth.gitlab-ci.yml'
+stages:
+  - install_deps
+  - test
+  - build
+  - package
 
-variables:
-  SOURCE_DIR: '.'
+default:
+  image: node:18.14.2
+
+Install Dependencies:
+  stage: install_deps
+  cache:
+    key:
+      files:
+        - bun.lockb
+    paths:
+      - node_modules
+    policy: pull-push
+  script:
+    - bun i
+
+Build:
+  stage: build
+  cache:
+    key:
+      files:
+        - bun.lockb
+    paths:
+      - node_modules
+    policy: pull
+  script:
+    - bun run build
+  artifacts:
+    paths:
+      - public
