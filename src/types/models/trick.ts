@@ -4,10 +4,10 @@ export interface Trick {
   name: string
   point: number
   startType: number
-  totalCompletes: number | null
-  trickLength: number | null
+  totalCompletes: number
+  trickLength: number
   createdAt: Date
-  authorSteamid64: string | null
+  authorSteamid64: string
   routeIds: string
   route: string
 }
