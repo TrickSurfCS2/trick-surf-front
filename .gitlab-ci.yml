@@ -6,6 +6,8 @@ stages:
 
 default:
   image: node:18.14.2
+  before_script:
+    - npm i bun -g --quiet
 
 Install Dependencies:
   stage: install_deps
