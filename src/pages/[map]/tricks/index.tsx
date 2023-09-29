@@ -8,11 +8,11 @@ import TricksList from '#/components/[map]/tricks/tricks-list'
 //* ------------------------------------------------------------------------------------------ *//
 const Tricks: FC = observer(() => {
   const store = useAppStore()
-  const { isLoading, tricks, triggers } = store.tricksStore.state
+  const { isLoading, filteredTricks, triggers } = store.tricksStore.state
 
   return (
     <TricksStyled>
-      <TricksList isLoading={isLoading} tricks={tricks} triggers={triggers} />
+      <TricksList isLoading={isLoading} tricks={filteredTricks} triggers={triggers} />
     </TricksStyled>
   )
 })

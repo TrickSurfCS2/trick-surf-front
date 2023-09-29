@@ -1,12 +1,18 @@
+/* eslint-disable no-case-declarations */
 import { FaSortDown, FaSortUp } from 'react-icons/fa'
 
 import cn from 'classnames'
 
 import { TricksListHeaderStyled } from './style'
 
-const TricksListHeader = () => {
-  const onClickSort = (value: string) => () => {
-    console.log('> sorts', value)
+import type { TrickSortKey } from '#/store/components/tricks.store'
+
+const TricksListHeader = observer(() => {
+  const { tricksStore } = useAppStore()
+  const { filteringAndSetTricks, state } = tricksStore
+
+  const onClickSort = (value: TrickSortKey) => () => {
+    filteringAndSetTricks(value)
   }
 
   return (
@@ -22,16 +28,16 @@ const TricksListHeader = () => {
           <div>trick</div>
           <div>Name</div>
         </div>
-        <div className={cn('sort')}>
-          <FaSortUp />
-          <FaSortDown />
+        <div className={cn('sort', state.sortedSettings['name'])}>
+          <FaSortUp className="up" />
+          <FaSortDown className="down" />
         </div>
       </div>
 
       <div className={cn('item', 'item-tp')}>
-        <div className={cn('sort')}>
-          <FaSortUp />
-          <FaSortDown />
+        <div className={cn('sort', state.sortedSettings['point'])}>
+          <FaSortUp className="up" />
+          <FaSortDown className="down" />
         </div>
         <div onClick={onClickSort('point')}>
           <div>trick</div>
@@ -40,11 +46,11 @@ const TricksListHeader = () => {
       </div>
 
       <div className={cn('item', 'item-tc')}>
-        <div className={cn('sort')}>
-          <FaSortUp />
-          <FaSortDown />
+        <div className={cn('sort', state.sortedSettings['totalCompletes'])}>
+          <FaSortUp className="up" />
+          <FaSortDown className="down" />
         </div>
-        <div onClick={onClickSort('completes')}>
+        <div onClick={onClickSort('totalCompletes')}>
           <div>total</div>
           <div>completes</div>
         </div>
@@ -69,17 +75,17 @@ const TricksListHeader = () => {
       )} */}
 
       <div className={cn('item', 'item-tl')}>
-        <div className={cn('sort')}>
-          <FaSortUp />
-          <FaSortDown />
+        <div className={cn('sort', state.sortedSettings['trickLength'])}>
+          <FaSortUp className="up" />
+          <FaSortDown className="down" />
         </div>
-        <div onClick={onClickSort('len')}>
+        <div onClick={onClickSort('trickLength')}>
           <div>trick</div>
           <div>length</div>
         </div>
       </div>
     </TricksListHeaderStyled>
   )
-}
+})
 
 export default TricksListHeader
