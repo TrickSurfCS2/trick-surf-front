@@ -5,13 +5,13 @@ import cn from 'classnames'
 
 import { TricksListHeaderStyled } from './style'
 
-import type { TrickSortSetting } from '#/store/components/tricks.store'
+import type { TrickSortKey } from '#/store/components/tricks.store'
 
 const TricksListHeader = observer(() => {
   const { tricksStore } = useAppStore()
   const { filteringAndSetTricks, state } = tricksStore
 
-  const onClickSort = (value: keyof TrickSortSetting) => () => {
+  const onClickSort = (value: TrickSortKey) => () => {
     filteringAndSetTricks(value)
   }
 
