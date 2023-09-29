@@ -6,7 +6,10 @@ export enum SortDir {
   None = 'none'
 }
 
-type TrickSortKey = keyof Pick<Trick, 'index' | 'name' | 'point' | 'trickLength' | 'totalCompletes'>
+export type TrickSortKey = keyof Pick<
+  Trick,
+  'index' | 'name' | 'point' | 'trickLength' | 'totalCompletes'
+>
 
 export type SortSetting<T extends string> = Record<T, SortDir>
 
