@@ -5,40 +5,14 @@ import cn from 'classnames'
 
 import { TricksListHeaderStyled } from './style'
 
-import type { Trick } from '#/types/models/trick'
+import type { SortSetting } from '#/store/components/tricks.store'
 
-interface Props {
-  tricks: Trick[]
-}
+const TricksListHeader = observer(() => {
+  const { tricksStore } = useAppStore()
+  const { setFilteredTricks, state } = tricksStore
 
-const TricksListHeader = observer((props: Props) => {
-  const { tricks } = props
-
-  console.log(tricks)
-
-  const onClickSort = (value: string) => () => {
-    switch (value) {
-      case 'index':
-        console.log('index')
-        tricks.sort((a, b) => a.index - b.index)
-        break
-      case 'name':
-        tricks.sort((a, b) => (a.name.toLocaleLowerCase() > b.name.toLocaleLowerCase() ? 1 : -1))
-        // console.log(tricks)
-        break
-      case 'point':
-        // console.log('point')
-        tricks.sort((a, b) => a.point - b.point)
-        break
-      case 'completes':
-        console.log('completes')
-        // tricks.sort((a, b) => a.totalCompletes - b.totalCompletes)
-        break
-      case 'len':
-        console.log('len')
-        // tricks.sort((a, b) => a.trickLength - b.trickLength)
-        break
-    }
+  const onClickSort = (value: keyof SortSetting) => () => {
+    setFilteredTricks(value)
   }
 
   return (
@@ -54,16 +28,16 @@ const TricksListHeader = observer((props: Props) => {
           <div>trick</div>
           <div>Name</div>
         </div>
-        <div className={cn('sort')}>
-          <FaSortUp />
-          <FaSortDown />
+        <div className={cn('sort', state.sortedSettings['name'])}>
+          <FaSortUp className={cn('up')} />
+          <FaSortDown className={cn('down')} />
         </div>
       </div>
 
       <div className={cn('item', 'item-tp')}>
-        <div className={cn('sort')}>
-          <FaSortUp />
-          <FaSortDown />
+        <div className={cn('sort', state.sortedSettings['point'])}>
+          <FaSortUp className={cn('up')} />
+          <FaSortDown className={cn('down')} />
         </div>
         <div onClick={onClickSort('point')}>
           <div>trick</div>
@@ -72,11 +46,11 @@ const TricksListHeader = observer((props: Props) => {
       </div>
 
       <div className={cn('item', 'item-tc')}>
-        <div className={cn('sort')}>
-          <FaSortUp />
-          <FaSortDown />
+        <div className={cn('sort', state.sortedSettings['totalCompletes'])}>
+          <FaSortUp className={cn('up')} />
+          <FaSortDown className={cn('down')} />
         </div>
-        <div onClick={onClickSort('completes')}>
+        <div onClick={onClickSort('totalCompletes')}>
           <div>total</div>
           <div>completes</div>
         </div>
@@ -101,11 +75,11 @@ const TricksListHeader = observer((props: Props) => {
       )} */}
 
       <div className={cn('item', 'item-tl')}>
-        <div className={cn('sort')}>
-          <FaSortUp />
-          <FaSortDown />
+        <div className={cn('sort', state.sortedSettings['trickLength'])}>
+          <FaSortUp className={cn('up')} />
+          <FaSortDown className={cn('down')} />
         </div>
-        <div onClick={onClickSort('len')}>
+        <div onClick={onClickSort('trickLength')}>
           <div>trick</div>
           <div>length</div>
         </div>

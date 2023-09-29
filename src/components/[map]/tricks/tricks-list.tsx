@@ -18,7 +18,7 @@ const TricksList = observer((props: Props) => {
 
   return (
     <Fragment>
-      <TricksListHeader tricks={tricks} />
+      <TricksListHeader />
       {isLoading ? (
         <Loader />
       ) : (

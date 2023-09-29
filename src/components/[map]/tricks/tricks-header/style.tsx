@@ -45,25 +45,12 @@ export const TricksListHeaderStyled = styled.div`
       font-size: 1rem;
       align-items: center;
       justify-content: center;
-      > * {
-        color: ${({ theme }) => theme.palette.text.secondary};
-      }
     }
 
     &-tn {
       align-items: center;
 
       width: 35%;
-
-      > * {
-        > :first-of-type {
-          color: ${({ theme }) => theme.palette.text.secondary};
-        }
-
-        > :last-child {
-          color: ${({ theme }) => theme.palette.text.trickName};
-        }
-      }
 
       /* @include before-desktop {
         width: 80%;
@@ -79,13 +66,6 @@ export const TricksListHeaderStyled = styled.div`
         display: flex;
         align-items: center;
         flex-direction: column;
-
-        > :first-of-type {
-          color: ${({ theme }) => theme.palette.text.secondary};
-        }
-        > :last-child {
-          color: ${({ theme }) => theme.palette.text.point};
-        }
       }
 
       padding-right: 25px;
@@ -100,13 +80,6 @@ export const TricksListHeaderStyled = styled.div`
         display: flex;
         align-items: flex-end;
         flex-direction: column;
-
-        > :first-of-type {
-          color: ${({ theme }) => theme.palette.text.secondary};
-        }
-        > :last-child {
-          color: ${({ theme }) => theme.palette.text.primary};
-        }
       }
 
       /* @include mobile {
@@ -123,13 +96,6 @@ export const TricksListHeaderStyled = styled.div`
         display: flex;
         align-items: flex-end;
         flex-direction: column;
-
-        > :first-of-type {
-          color: ${({ theme }) => theme.palette.text.secondary};
-        }
-        > :last-child {
-          color: ${({ theme }) => theme.palette.text.primary};
-        }
       }
 
       /* @include mobile {
@@ -146,13 +112,6 @@ export const TricksListHeaderStyled = styled.div`
         display: flex;
         align-items: flex-end;
         flex-direction: column;
-
-        > :first-of-type {
-          color: ${({ theme }) => theme.palette.text.secondary};
-        }
-        > :last-child {
-          color: ${({ theme }) => theme.palette.text.primary};
-        }
       }
 
       /* @include mobile {
@@ -165,14 +124,14 @@ export const TricksListHeaderStyled = styled.div`
     display: flex;
     height: 100%;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     font-size: 1rem;
     width: 20px;
-    opacity: 0;
 
-    > * {
-      opacity: 0;
+    svg {
+      width: 15px;
+      height: 15px;
     }
 
     &-up {
@@ -189,6 +148,36 @@ export const TricksListHeaderStyled = styled.div`
 
     &-active {
       opacity: 1;
+    }
+  }
+
+  .desc {
+    .up {
+      color: ${({ theme }) => theme.palette.text.primary};
+    }
+
+    .down {
+      color: ${({ theme }) => theme.palette.text.trickName};
+    }
+  }
+
+  .asc {
+    .up {
+      color: ${({ theme }) => theme.palette.text.trickName};
+    }
+
+    .down {
+      color: ${({ theme }) => theme.palette.text.primary};
+    }
+  }
+
+  .none {
+    .up {
+      color: ${({ theme }) => theme.palette.text.secondary};
+    }
+
+    .down {
+      color: ${({ theme }) => theme.palette.text.secondary};
     }
   }
 `
