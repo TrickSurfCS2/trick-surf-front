@@ -2,6 +2,8 @@ import type { FC } from 'react'
 
 import { FaqStyled } from './style'
 
+// Faq page
+//* ------------------------------------------------------------------------------------------ *//
 const Faq: FC = () => {
   return (
     <FaqStyled>

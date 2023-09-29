@@ -45,3 +45,4 @@ vite.config.ts
 vitest.config.ts
 *.d.ts
 vitest
+.vitestcache

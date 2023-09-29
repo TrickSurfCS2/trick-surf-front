@@ -4,7 +4,7 @@ export const FaqStyled = styled.section`
   padding: 5px;
 
   * code {
-    color: ${({ theme }) => theme.palette.text.quaternary};
+    color: ${({ theme }) => theme.palette.bg.highlight};
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
     font-size: 0.95rem;
   }

@@ -28,7 +28,7 @@
     },
     "typeRoots": ["./node_modules/@types", "./src/types/declare"]
   },
-  "include": ["src", "server", "test", "vitest", "auto-imports.config.ts"],
+  "include": ["src", "server", "test", "vitest"],
   "references": [
     {
       "path": "./tsconfig.node.json"

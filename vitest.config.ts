@@ -30,6 +30,9 @@ export default defineConfig({
   ],
 
   test: {
+    cache: {
+      dir: '.vitestcache',
+    },
     coverage: {
       all: true,
       provider: 'v8',

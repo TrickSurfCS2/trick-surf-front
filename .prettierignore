@@ -110,3 +110,4 @@ vitest.config.ts
 vitest/before-all.ts
 vitest/setup.ts
 *.d.ts
+.vitestcache

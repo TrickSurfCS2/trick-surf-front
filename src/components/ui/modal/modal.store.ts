@@ -5,8 +5,8 @@ import { BiLoader } from 'react-icons/bi'
 
 import { BaseDialogStore } from '../dialog/dialog.store'
 
-import type { IButtonProps } from '../button/button'
-import type { IButtonController } from '../button/button.store'
+import type { ButtonProps } from '../button/button'
+import type { ButtonController } from '../button/button.store'
 
 export enum ModalType {
   'CONFIRM',
@@ -14,21 +14,21 @@ export enum ModalType {
   'PROCESSING'
 }
 
-export interface IModalController {
+export interface ModalController {
   hide: () => void
   showLoader: (message?: string) => void
   showWarning: (params: ShowAlertTypedParams) => void
   showError: (params: ShowAlertTypedParams) => void
   showSuccess: (params: ShowAlertTypedParams) => void
   showInfo: (params: ShowAlertTypedParams) => void
-  showCustomDialog: (params: IShowCustomDialogParams) => void
-  showConfirm: (params: IShowConfirmParams) => void
+  showCustomDialog: (params: ShowCustomDialogParams) => void
+  showConfirm: (params: ShowConfirmParams) => void
 }
 
-export type DialogButtonParams = Omit<IButtonProps, 'onClick'> & {
+export type DialogButtonParams = Omit<ButtonProps, 'onClick'> & {
   onClick: (
-    modalController: IModalController,
-    buttonController: IButtonController,
+    modalController: ModalController,
+    buttonController: ButtonController,
     e: React.MouseEvent
   ) => void
 }
@@ -41,7 +41,7 @@ export enum AlertType {
   Processing = 'processing'
 }
 
-interface IShowDialogParams {
+interface ShowDialogParams {
   Icon?: ElementType
   message: ReactNode
   headerText?: string
@@ -49,33 +49,33 @@ interface IShowDialogParams {
   alertType?: AlertType
 }
 
-export interface IShowAlertParams extends IShowDialogParams {
+export interface ShowAlertParams extends ShowDialogParams {
   okText?: string
   okClick?: (
-    modalController: IModalController,
-    buttonController: IButtonController,
+    modalController: ModalController,
+    buttonController: ButtonController,
     e: React.MouseEvent
   ) => void
 }
 
-export type ShowAlertTypedParams = Omit<IShowAlertParams, 'alertType'>
+export type ShowAlertTypedParams = Omit<ShowAlertParams, 'alertType'>
 
-export interface IShowConfirmParams extends IShowAlertParams {
+export interface ShowConfirmParams extends ShowAlertParams {
   cancelText?: string
   cancelClick?: (
-    modalController: IModalController,
-    buttonController: IButtonController,
+    modalController: ModalController,
+    buttonController: ButtonController,
     e: React.MouseEvent
   ) => void
 }
 
-export interface IShowCustomDialogParams extends IShowDialogParams {
+export interface ShowCustomDialogParams extends ShowDialogParams {
   buttons: DialogButtonParams[]
 }
 
-type ShowModalParams = Omit<IShowDialogParams, 'alertType'> & {
+type ShowModalParams = Omit<ShowDialogParams, 'alertType'> & {
   type: ModalType
-  buttons: IButtonProps[]
+  buttons: ButtonProps[]
   alertType: AlertType
 }
 
@@ -92,7 +92,7 @@ export class ModalStore extends BaseDialogStore {
     processing: 'Cообщение системы'
   }
 
-  controller: IModalController
+  controller: ModalController
 
   constructor() {
     super({ isOutsideClick: false })
@@ -111,8 +111,8 @@ export class ModalStore extends BaseDialogStore {
     this.showDialog()
   }
 
-  showCustomDialog = (params: IShowCustomDialogParams): void => {
-    const _buttons = [] as IButtonProps[]
+  showCustomDialog = (params: ShowCustomDialogParams): void => {
+    const _buttons = [] as ButtonProps[]
 
     const { buttons, alertType, ...rest } = params
 
@@ -121,7 +121,7 @@ export class ModalStore extends BaseDialogStore {
         const { onClick, ...args } = f
         return {
           ...args,
-          onClick: (buttonController: IButtonController, e: React.MouseEvent) => {
+          onClick: (buttonController: ButtonController, e: React.MouseEvent) => {
             onClick(this.controller, buttonController, e)
           }
         }
@@ -139,7 +139,7 @@ export class ModalStore extends BaseDialogStore {
   getHeaderByType = (alertType: AlertType): string =>
     this.showParams.headerText || this.headerNames[alertType]
 
-  showAlert = (params: IShowAlertParams): void => {
+  showAlert = (params: ShowAlertParams): void => {
     const { okClick, okText, alertType, ...rest } = params
     this.showModal({
       ...rest,
@@ -160,19 +160,19 @@ export class ModalStore extends BaseDialogStore {
     })
   }
 
-  showWarning = (params: Omit<IShowAlertParams, 'alertType'>): void =>
+  showWarning = (params: Omit<ShowAlertParams, 'alertType'>): void =>
     this.showAlert({ ...params, alertType: AlertType.Warning })
 
-  showError = (params: Omit<IShowAlertParams, 'alertType'>): void =>
+  showError = (params: Omit<ShowAlertParams, 'alertType'>): void =>
     this.showAlert({ ...params, alertType: AlertType.Error })
 
-  showSuccess = (params: Omit<IShowAlertParams, 'alertType'>): void =>
+  showSuccess = (params: Omit<ShowAlertParams, 'alertType'>): void =>
     this.showAlert({ ...params, alertType: AlertType.Success })
 
-  showInfo = (params: Omit<IShowAlertParams, 'alertType'>): void =>
+  showInfo = (params: Omit<ShowAlertParams, 'alertType'>): void =>
     this.showAlert({ ...params, alertType: AlertType.Info })
 
-  showConfirm = (params: IShowConfirmParams): void => {
+  showConfirm = (params: ShowConfirmParams): void => {
     const { okClick, okText, cancelClick, cancelText, alertType, ...rest } = params
     this.showModal({
       ...rest,
@@ -213,7 +213,7 @@ export class ModalStore extends BaseDialogStore {
     })
   }
 
-  getController = (): IModalController => {
+  getController = (): ModalController => {
     return {
       hide: () => this.hideDialog(),
       showLoader: (message) => this.showLoader(message),

@@ -9,12 +9,6 @@ import react from '@vitejs/plugin-react-swc';
 // import react from '@vitejs/plugin-react';
 
 export default defineConfig(async ({ command, mode }): Promise<UserConfig> => {
-  const env = {
-    ...process.env,
-    ...loadEnv(mode, process.cwd())
-  }
-  process.env = { ...env};
-
   const config: UserConfig = {
     base: '/',
     plugins: [

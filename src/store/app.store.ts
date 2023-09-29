@@ -1,4 +1,4 @@
-import type { IModalController } from '#/components/ui/modal/modal.store'
+import type { ModalController } from '#/components/ui/modal/modal.store'
 import type { ThemeVarious } from '#/contexts/theme'
 import type { Map } from '#/types/models/map'
 import type { TControllerRef } from '#/utils/common/utils'
@@ -15,7 +15,7 @@ interface AppStoreState {
 
 //* ---- App store ------------------------------------------------------------- *//
 export default class AppStore {
-  private _modalDialogControllerRef = {} as TControllerRef<IModalController>
+  private _modalDialogControllerRef = {} as TControllerRef<ModalController>
 
   state: AppStoreState = {
     theme: 'blue',
@@ -58,8 +58,8 @@ export default class AppStore {
   }
 
   setModalControllerRef = (
-    ref: TControllerRef<IModalController>
-  ): TControllerRef<IModalController> => {
+    ref: TControllerRef<ModalController>
+  ): TControllerRef<ModalController> => {
     return (this._modalDialogControllerRef = ref)
   }
 
@@ -153,7 +153,7 @@ export default class AppStore {
     return this.state.isAppLoading
   }
 
-  get modal(): IModalController | undefined {
+  get modal(): ModalController | undefined {
     return this._modalDialogControllerRef.current
   }
 }

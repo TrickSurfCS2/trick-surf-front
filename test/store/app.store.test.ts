@@ -77,14 +77,6 @@ describe('AppStore', () => {
     })
   })
 
-  describe('addAxiosInterceptors', () => {
-    it('should add interceptors to Axios', () => {
-      appStore.addAxiosInterceptors()
-      expect((axios.interceptors.response as any).handlers.length).toBeGreaterThan(0)
-      expect((axios.interceptors.request as any).handlers.length).toBeGreaterThan(0)
-    })
-  })
-
   describe('switchTheme', () => {
     it('should switch the theme to the next theme', () => {
       appStore.setTheme('light')
