@@ -1,12 +1,44 @@
+/* eslint-disable no-case-declarations */
 import { FaSortDown, FaSortUp } from 'react-icons/fa'
 
 import cn from 'classnames'
 
 import { TricksListHeaderStyled } from './style'
 
-const TricksListHeader = () => {
+import type { Trick } from '#/types/models/trick'
+
+interface Props {
+  tricks: Trick[]
+}
+
+const TricksListHeader = observer((props: Props) => {
+  const { tricks } = props
+
+  console.log(tricks)
+
   const onClickSort = (value: string) => () => {
-    console.log('> sorts', value)
+    switch (value) {
+      case 'index':
+        console.log('index')
+        tricks.sort((a, b) => a.index - b.index)
+        break
+      case 'name':
+        tricks.sort((a, b) => (a.name.toLocaleLowerCase() > b.name.toLocaleLowerCase() ? 1 : -1))
+        // console.log(tricks)
+        break
+      case 'point':
+        // console.log('point')
+        tricks.sort((a, b) => a.point - b.point)
+        break
+      case 'completes':
+        console.log('completes')
+        // tricks.sort((a, b) => a.totalCompletes - b.totalCompletes)
+        break
+      case 'len':
+        console.log('len')
+        // tricks.sort((a, b) => a.trickLength - b.trickLength)
+        break
+    }
   }
 
   return (
@@ -80,6 +112,6 @@ const TricksListHeader = () => {
       </div>
     </TricksListHeaderStyled>
   )
-}
+})
 
 export default TricksListHeader
