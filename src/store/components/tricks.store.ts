@@ -1,9 +1,16 @@
 import type { Trick, Trigger } from '#/types/models/trick'
 
-export type SortSetting = Record<
-  keyof Pick<Trick, 'index' | 'name' | 'point' | 'trickLength' | 'totalCompletes'>,
-  'asc' | 'desc' | 'none'
->
+export enum SortDir {
+  Asc = 'asc',
+  Desc = 'desc',
+  None = 'none'
+}
+
+type TrickSortKey = keyof Pick<Trick, 'index' | 'name' | 'point' | 'trickLength' | 'totalCompletes'>
+
+export type SortSetting<T extends string> = Record<T, SortDir>
+
+export type TrickSortSetting = SortSetting<TrickSortKey>
 
 interface TricksStoreState {
   isLoading: boolean
@@ -12,7 +19,7 @@ interface TricksStoreState {
   tricks: Trick[]
   triggers: Trigger[]
   filteredTricks: Trick[]
-  sortedSettings: SortSetting
+  sortedSettings: TrickSortSetting
 }
 
 export default class TricksStore {
@@ -24,11 +31,11 @@ export default class TricksStore {
     triggers: [],
     filteredTricks: [],
     sortedSettings: {
-      name: 'none',
-      index: 'none',
-      point: 'none',
-      trickLength: 'none',
-      totalCompletes: 'none'
+      name: SortDir.None,
+      index: SortDir.None,
+      point: SortDir.None,
+      trickLength: SortDir.None,
+      totalCompletes: SortDir.None
     }
   }
 
@@ -37,7 +44,7 @@ export default class TricksStore {
       setTricks: action,
       setTriggers: action,
       fetchTricks: action,
-      setFilteredTricks: action
+      filteringAndSetTricks: action
     })
 
     makeAutoObservable(this.state)
@@ -47,20 +54,20 @@ export default class TricksStore {
     this.state.tricks = value
     this.state.filteredTricks = value
   }
+
   setTriggers = (value: Trigger[]): Trigger[] => (this.state.triggers = value)
 
-  setFilteredTricks = (key: keyof SortSetting) => {
-    let currentDir = this.state.sortedSettings[key]
+  filteringAndSetTricks = (key: keyof TrickSortSetting) => {
+    const currentDir = this.state.sortedSettings[key]
 
-    if (currentDir === 'none') {
-      this.state.sortedSettings[key] = 'asc'
-    } else if (currentDir === 'asc') {
-      this.state.sortedSettings[key] = 'desc'
-    } else {
-      this.state.sortedSettings[key] = 'none'
-    }
+    const newDir =
+      this.state.sortedSettings[key] === 'none'
+        ? SortDir.Asc
+        : currentDir === 'asc'
+        ? SortDir.Desc
+        : SortDir.None
 
-    currentDir = this.state.sortedSettings[key]
+    this.state.sortedSettings[key] = newDir
 
     const tricks = deepCopy(this.state.tricks)
 
