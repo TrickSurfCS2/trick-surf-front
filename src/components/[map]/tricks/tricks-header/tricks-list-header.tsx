@@ -29,15 +29,15 @@ const TricksListHeader = observer(() => {
           <div>Name</div>
         </div>
         <div className={cn('sort', state.sortedSettings['name'])}>
-          <FaSortUp className={cn('up')} />
-          <FaSortDown className={cn('down')} />
+          <FaSortUp className="up" />
+          <FaSortDown className="down" />
         </div>
       </div>
 
       <div className={cn('item', 'item-tp')}>
         <div className={cn('sort', state.sortedSettings['point'])}>
-          <FaSortUp className={cn('up')} />
-          <FaSortDown className={cn('down')} />
+          <FaSortUp className="up" />
+          <FaSortDown className="down" />
         </div>
         <div onClick={onClickSort('point')}>
           <div>trick</div>
@@ -47,8 +47,8 @@ const TricksListHeader = observer(() => {
 
       <div className={cn('item', 'item-tc')}>
         <div className={cn('sort', state.sortedSettings['totalCompletes'])}>
-          <FaSortUp className={cn('up')} />
-          <FaSortDown className={cn('down')} />
+          <FaSortUp className="up" />
+          <FaSortDown className="down" />
         </div>
         <div onClick={onClickSort('totalCompletes')}>
           <div>total</div>
@@ -76,8 +76,8 @@ const TricksListHeader = observer(() => {
 
       <div className={cn('item', 'item-tl')}>
         <div className={cn('sort', state.sortedSettings['trickLength'])}>
-          <FaSortUp className={cn('up')} />
-          <FaSortDown className={cn('down')} />
+          <FaSortUp className="up" />
+          <FaSortDown className="down" />
         </div>
         <div onClick={onClickSort('trickLength')}>
           <div>trick</div>

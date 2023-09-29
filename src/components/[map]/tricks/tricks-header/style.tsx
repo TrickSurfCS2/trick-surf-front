@@ -172,12 +172,9 @@ export const TricksListHeaderStyled = styled.div`
   }
 
   .none {
-    .up {
-      color: ${({ theme }) => theme.palette.text.secondary};
-    }
-
+    .up,
     .down {
-      color: ${({ theme }) => theme.palette.text.secondary};
+      opacity: 0;
     }
   }
 `

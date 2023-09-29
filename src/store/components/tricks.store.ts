@@ -61,9 +61,9 @@ export default class TricksStore {
     const currentDir = this.state.sortedSettings[key]
 
     const newDir =
-      this.state.sortedSettings[key] === 'none'
+      this.state.sortedSettings[key] === SortDir.None
         ? SortDir.Asc
-        : currentDir === 'asc'
+        : currentDir === SortDir.Asc
         ? SortDir.Desc
         : SortDir.None
 
@@ -72,16 +72,16 @@ export default class TricksStore {
     const tricks = deepCopy(this.state.tricks)
 
     Object.entries(this.state.sortedSettings).forEach(([key, dir]) => {
-      if (dir !== 'none') {
+      if (dir !== SortDir.None) {
         tricks.sort((a, b) => {
           const aValue = a[key as keyof Trick]
           const bValue = b[key as keyof Trick]
 
           if (aValue < bValue) {
-            return dir === 'asc' ? -1 : 1
+            return dir === SortDir.Asc ? -1 : 1
           }
           if (aValue > bValue) {
-            return dir === 'asc' ? 1 : -1
+            return dir === SortDir.Asc ? 1 : -1
           }
           return 0
         })
