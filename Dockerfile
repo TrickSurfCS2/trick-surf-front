@@ -1,12 +1,14 @@
-FROM node:20.6.1-slim
+FROM node:20.9.0-bullseye-slim
 
 WORKDIR /opt/trick-surf-front
 
 COPY . .
 
-RUN npm i bun -g --quiet
-RUN bun i --ignore-scripts --no-optional
-RUN bun run build
+RUN npm i bun @antfu/ni -g
+RUN ni --ignore-scripts
+
+RUN nr lint
+RUN nr build
 
 ENV HOST 0.0.0.0
-CMD ["bun", "run", "start"]
+CMD ["nr", "start"]

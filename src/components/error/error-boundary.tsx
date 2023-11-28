@@ -5,27 +5,21 @@ import { TbFaceIdError } from 'react-icons/tb'
 import { Catch } from './catch'
 import './error.css'
 
-export type ErrorBoundaryProps = PropsWithChildren<{
-  componentName: string
-}>
-
-export const ErrorBoundary: FC<ErrorBoundaryProps> = (props, error: Error | null): ReactElement => {
-  const { children, componentName } = props
+export const ErrorBoundary: FC<PropsWithChildren> = (props, error: Error | null): ReactElement => {
+  const { children } = props
 
   if (error) {
-    const { message } = error
+    const { message, name } = error
 
     return (
       <div className="error">
         <TbFaceIdError />
         <div>
           <span>Smth wrong</span>
-          {' '}
-          {componentName}
+          {name}
         </div>
         <div>
           <span>Error message</span>
-          {' '}
           {message}
         </div>
         <div className="footer">sorry</div>

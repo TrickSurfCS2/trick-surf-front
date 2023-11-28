@@ -1,12 +1,13 @@
+/* eslint-disable import/order */
 import { URL, fileURLToPath } from 'node:url'
 import { visualizer } from 'rollup-plugin-visualizer'
 import { defineConfig } from 'vite'
 import AutoImport from 'unplugin-auto-import/vite'
-import react from '@vitejs/plugin-react-swc'
 import { configAutoImport } from './auto-imports.config'
 
 //* swc / classic
 // import react from '@vitejs/plugin-react';
+import react from '@vitejs/plugin-react-swc'
 
 export default defineConfig(async ({ command, mode }) => ({
   base: '/',

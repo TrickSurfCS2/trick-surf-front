@@ -14,7 +14,6 @@ function Loader() {
   return (
     <Html center>
       {progress}
-      {' '}
       % loaded
     </Html>
   )

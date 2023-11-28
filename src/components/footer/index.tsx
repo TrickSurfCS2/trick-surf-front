@@ -20,11 +20,11 @@ export const Footer = observer(
             Vk
           </a>
           <span>|</span>
-          <a href="https://github.com/Evvvai" className="content-item">
+          <a href="https://github.com/injurka" className="content-item">
             GitHub
           </a>
           <span>|</span>
-          <a href="steam://connect/62.122.215.124:27015" className="content-item">
+          <a href="steam://connect/-" className="content-item">
             Server
           </a>
           <span>|</span>

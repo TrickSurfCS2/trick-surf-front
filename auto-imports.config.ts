@@ -1,6 +1,6 @@
 import type { Options } from 'unplugin-auto-import/types'
 
-export const configAutoImport = {
+export const configAutoImport: Options = {
   include: [/\.(store\.)?[tj]sx?$/],
   imports: [
     'react',
@@ -32,4 +32,4 @@ export const configAutoImport = {
     './src/utils/router/',
   ],
   dts: './src/types/declare/auto-imports.d.ts',
-} as Options
+}

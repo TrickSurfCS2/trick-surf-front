@@ -3,7 +3,7 @@ import { Fragment } from 'react'
 
 import Helmet from 'react-helmet'
 
-import { RecordsStyled } from './style'
+import { RecordsStyled } from './records.style'
 
 // Records page
 //* ------------------------------------------------------------------------------------------ *//

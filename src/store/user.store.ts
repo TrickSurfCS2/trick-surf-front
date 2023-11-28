@@ -20,6 +20,7 @@ export default class UserStore {
     // const { data: user } = await graphql.query.user.me()
     const user = null
     this.setUser(user)
+
     return user ?? null
   }
 

@@ -3,7 +3,7 @@ import { BrowserRouter } from 'react-router-dom'
 
 import { Global } from '@emotion/react'
 
-import App from '#/pages/App'
+import App from '#/pages/app'
 import { GlobalStyles } from '#/styles/common'
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)

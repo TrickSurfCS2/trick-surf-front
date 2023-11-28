@@ -3,7 +3,7 @@ import { Fragment } from 'react'
 
 import Helmet from 'react-helmet'
 
-import { TriggersStyled } from './style'
+import { TriggersStyled } from './triggers.style'
 
 import TriggersList from '#/components/[map]/triggers/triggers-list'
 

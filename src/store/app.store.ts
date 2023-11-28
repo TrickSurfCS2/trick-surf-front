@@ -30,6 +30,7 @@ export default class AppStore {
   constructor() {
     makeObservable(this, {
       // ~ action
+      setIsAppLoading: action,
       setScroll: action,
       setViewport: action,
       setTheme: action,
@@ -103,8 +104,13 @@ export default class AppStore {
   }
 
   fetchAndSetMaps = async (): Promise<void> => {
-    const { data } = await api.map.v1.getMaps()
-    this.state.maps = data
+    try {
+      const { data } = await api.map.v1.getMaps()
+      this.state.maps = data
+    }
+    catch (e) {
+      this.state.maps = []
+    }
   }
 
   get map(): Map {

@@ -10,7 +10,7 @@ import { Ground } from './scene-segment/ground'
 import { Model } from './scene-segment/model'
 import { Shadows } from './scene-segment/shadows'
 
-const url = '/models/RobotExpressive.glb'
+const url = '/models/surf_ski_3_x.glb'
 const hdr = '/hdr/sky.hdr'
 
 const { DEG2RAD } = THREE.MathUtils
