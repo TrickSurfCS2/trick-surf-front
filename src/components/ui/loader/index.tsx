@@ -3,7 +3,7 @@ import { Spin } from 'antd'
 
 const antIcon = <LoadingOutlined style={{ fontSize: 36 }} spin />
 
-const Loader = () => {
+function Loader() {
   return <Spin indicator={antIcon} />
 }
 

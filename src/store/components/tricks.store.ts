@@ -3,7 +3,7 @@ import type { Trick, Trigger } from '#/types/models/trick'
 export enum SortDir {
   Asc = 'asc',
   Desc = 'desc',
-  None = 'none'
+  None = 'none',
 }
 
 export type TrickSortKey = keyof Pick<
@@ -38,8 +38,8 @@ export default class TricksStore {
       index: SortDir.None,
       point: SortDir.None,
       trickLength: SortDir.None,
-      totalCompletes: SortDir.None
-    }
+      totalCompletes: SortDir.None,
+    },
   }
 
   constructor() {
@@ -47,7 +47,7 @@ export default class TricksStore {
       setTricks: action,
       setTriggers: action,
       fetchTricks: action,
-      filteringAndSetTricks: action
+      filteringAndSetTricks: action,
     })
 
     makeAutoObservable(this.state)
@@ -63,12 +63,12 @@ export default class TricksStore {
   filteringAndSetTricks = (key: keyof TrickSortSetting) => {
     const currentDir = this.state.sortedSettings[key]
 
-    const newDir =
-      this.state.sortedSettings[key] === SortDir.None
+    const newDir
+      = this.state.sortedSettings[key] === SortDir.None
         ? SortDir.Asc
         : currentDir === SortDir.Asc
-        ? SortDir.Desc
-        : SortDir.None
+          ? SortDir.Desc
+          : SortDir.None
 
     this.state.sortedSettings[key] = newDir
 
@@ -80,12 +80,12 @@ export default class TricksStore {
           const aValue = a[key as keyof Trick]
           const bValue = b[key as keyof Trick]
 
-          if (aValue < bValue) {
+          if (aValue < bValue)
             return dir === SortDir.Asc ? -1 : 1
-          }
-          if (aValue > bValue) {
+
+          if (aValue > bValue)
             return dir === SortDir.Asc ? 1 : -1
-          }
+
           return 0
         })
       }
@@ -101,16 +101,18 @@ export default class TricksStore {
     try {
       const [tricks, trigger] = await Promise.all([
         api.trick.v1.getTrickList({ mapId }),
-        api.trigger.v1.getTriggers({ mapId })
+        api.trigger.v1.getTriggers({ mapId }),
       ])
 
       this.setTricks(tricks.data)
       this.setTriggers(trigger.data)
 
       this.state.isLoading = false
-    } catch (e) {
+    }
+    catch (e) {
       // this
-    } finally {
+    }
+    finally {
       this.state.isLoaded = true
     }
   }

@@ -1,7 +1,7 @@
 import { BaseDialogStore } from '../dialog/dialog.store'
 
-import type { Side } from './panel.style'
 import type { IBaseDialogStoreParams } from '../dialog/dialog.store'
+import type { Side } from './panel.style'
 
 export interface IPanelStoreParams extends IBaseDialogStoreParams {
   side?: Side
@@ -15,14 +15,13 @@ export class PanelStore extends BaseDialogStore {
     super(params)
 
     this._params = {
-      ...params
+      ...params,
     }
   }
 
   handleOutsideClick = () => {
-    if (this.isVisible && this.dialogParams.isOutsideClick) {
+    if (this.isVisible && this.dialogParams.isOutsideClick)
       this.hideDialog()
-    }
   }
 
   get isDialogNotAnimate(): boolean {

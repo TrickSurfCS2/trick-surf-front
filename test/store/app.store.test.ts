@@ -1,10 +1,9 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-import { expect, describe, it } from 'vitest'
+import { describe, expect, it } from 'vitest'
 
 import type { ScrollRecord } from '#/store/app.store'
 import AppStore from '#/store/app.store'
 
-describe('AppStore', () => {
+describe('appStore', () => {
   const appStore = new AppStore()
 
   describe('setIsAppLoading', () => {
@@ -36,7 +35,7 @@ describe('AppStore', () => {
         pad: false,
         hpad: false,
         wider: true,
-        widest: true
+        widest: true,
       }
       appStore.setViewport(viewport)
       expect(appStore.state.viewport).toEqual(viewport)
@@ -131,7 +130,7 @@ describe('AppStore', () => {
         pad: false,
         hpad: false,
         wider: false,
-        widest: false
+        widest: false,
       })
       expect(appStore.isPadOrMobile).toEqual(true)
       appStore.setViewport({
@@ -141,7 +140,7 @@ describe('AppStore', () => {
         pad: true,
         hpad: false,
         wider: false,
-        widest: false
+        widest: false,
       })
       expect(appStore.isPadOrMobile).toEqual(true)
     })
@@ -154,7 +153,7 @@ describe('AppStore', () => {
         pad: false,
         hpad: true,
         wider: false,
-        widest: false
+        widest: false,
       })
       expect(appStore.isPadOrMobile).toEqual(false)
       appStore.setViewport({
@@ -164,7 +163,7 @@ describe('AppStore', () => {
         pad: false,
         hpad: false,
         wider: true,
-        widest: false
+        widest: false,
       })
       expect(appStore.isPadOrMobile).toEqual(false)
     })
@@ -179,7 +178,7 @@ describe('AppStore', () => {
         pad: false,
         hpad: false,
         wider: false,
-        widest: false
+        widest: false,
       })
       expect(appStore.isNarrowThanLaptop).toEqual(true)
       appStore.setViewport({
@@ -189,7 +188,7 @@ describe('AppStore', () => {
         pad: true,
         hpad: false,
         wider: false,
-        widest: false
+        widest: false,
       })
       expect(appStore.isNarrowThanLaptop).toEqual(true)
       appStore.setViewport({
@@ -199,7 +198,7 @@ describe('AppStore', () => {
         pad: false,
         hpad: true,
         wider: false,
-        widest: false
+        widest: false,
       })
       expect(appStore.isNarrowThanLaptop).toEqual(true)
     })
@@ -212,7 +211,7 @@ describe('AppStore', () => {
         pad: false,
         hpad: false,
         wider: true,
-        widest: false
+        widest: false,
       })
       expect(appStore.isNarrowThanLaptop).toEqual(false)
       appStore.setViewport({
@@ -222,7 +221,7 @@ describe('AppStore', () => {
         pad: false,
         hpad: false,
         wider: false,
-        widest: true
+        widest: true,
       })
       expect(appStore.isNarrowThanLaptop).toEqual(false)
     })

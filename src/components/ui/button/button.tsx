@@ -20,7 +20,7 @@ export interface ButtonProps {
 }
 
 export const Button = observer(
-  forwardRef(function Button(props: ButtonProps, ref: ForwardedRef<HTMLButtonElement>) {
+  forwardRef((props: ButtonProps, ref: ForwardedRef<HTMLButtonElement>) => {
     const { controllerRef, ...rest } = props
 
     const store = useNewStore(ButtonStore, rest)
@@ -31,10 +31,11 @@ export const Button = observer(
     return (
       <ButtonStyled
         ref={ref}
-        onClick={(e) => onClick(controller, e)}
-        className={cn('button', className)}>
+        onClick={e => onClick(controller, e)}
+        className={cn('button', className)}
+      >
         <span className="button-text">{text}</span>
       </ButtonStyled>
     )
-  })
+  }),
 )

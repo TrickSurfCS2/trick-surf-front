@@ -1,4 +1,3 @@
-/* eslint-disable no-case-declarations */
 import { FaSortDown, FaSortUp } from 'react-icons/fa'
 
 import cn from 'classnames'
@@ -28,14 +27,14 @@ const TricksListHeader = observer(() => {
           <div>trick</div>
           <div>Name</div>
         </div>
-        <div className={cn('sort', state.sortedSettings['name'])}>
+        <div className={cn('sort', state.sortedSettings.name)}>
           <FaSortUp className="up" />
           <FaSortDown className="down" />
         </div>
       </div>
 
       <div className={cn('item', 'item-tp')}>
-        <div className={cn('sort', state.sortedSettings['point'])}>
+        <div className={cn('sort', state.sortedSettings.point)}>
           <FaSortUp className="up" />
           <FaSortDown className="down" />
         </div>
@@ -46,7 +45,7 @@ const TricksListHeader = observer(() => {
       </div>
 
       <div className={cn('item', 'item-tc')}>
-        <div className={cn('sort', state.sortedSettings['totalCompletes'])}>
+        <div className={cn('sort', state.sortedSettings.totalCompletes)}>
           <FaSortUp className="up" />
           <FaSortDown className="down" />
         </div>
@@ -75,7 +74,7 @@ const TricksListHeader = observer(() => {
       )} */}
 
       <div className={cn('item', 'item-tl')}>
-        <div className={cn('sort', state.sortedSettings['trickLength'])}>
+        <div className={cn('sort', state.sortedSettings.trickLength)}>
           <FaSortUp className="up" />
           <FaSortDown className="down" />
         </div>

@@ -17,26 +17,26 @@ export class BaseDialogStore {
 
   __state: IBaseDialogStoreState = {
     isVisible: false,
-    isLock: false
+    isLock: false,
   }
 
   constructor(params?: IBaseDialogStoreParams) {
     this.__params = {
       ...params,
       isOutsideClick: params?.isOutsideClick ?? true,
-      isNotAnimate: params?.isNotAnimate ?? false
+      isNotAnimate: params?.isNotAnimate ?? false,
     }
 
     makeObservable(this, {
       setIsVisible: action,
       setIsLock: action,
       lockDialog: action,
-      isDialogHidden: computed
+      isDialogHidden: computed,
     })
 
     makeObservable(this.__state, {
       isVisible: observable,
-      isLock: observable
+      isLock: observable,
     })
   }
 
@@ -69,15 +69,13 @@ export class BaseDialogStore {
   hideDialog = (withoutLock?: boolean): void => {
     const { isVisible, isLock } = this.__state
 
-    if (!isVisible || isLock) {
+    if (!isVisible || isLock)
       return
-    }
 
-    if (withoutLock) {
+    if (withoutLock)
       this.setIsVisible(false)
-    } else {
+    else
       this.lockDialog()
-    }
   }
 
   get isVisible(): boolean {

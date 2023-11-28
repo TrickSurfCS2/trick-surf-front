@@ -18,8 +18,8 @@ const Triggers: FC = observer(() => {
   return (
     <Fragment>
       <Helmet>
-        <title>{map.fullName + ' | Triggers'}</title>
-        <meta property="og:title" content={map.fullName + ' | Triggers'} />
+        <title>{`${map.fullName} | Triggers`}</title>
+        <meta property="og:title" content={`${map.fullName} | Triggers`} />
         <meta
           name="description"
           content={`List of all available triggers for the ${map.fullName} map`}
@@ -28,7 +28,7 @@ const Triggers: FC = observer(() => {
       <TriggersStyled>
         {/* // TODO filtering
           <div className="control">
-           
+
           </div> */}
 
         <TriggersList isLoading={isLoading} triggers={triggers} />

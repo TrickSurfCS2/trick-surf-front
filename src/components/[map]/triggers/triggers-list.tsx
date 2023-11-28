@@ -17,22 +17,24 @@ const TriggersList = observer((props: Props) => {
 
   return (
     <Fragment>
-      {isLoading ? (
-        <Loader />
-      ) : (
-        <TriggersListStyled>
-          {triggers?.map(({ id, preview, name }) => (
-            <div key={id} className="item">
-              <div className="item-inner">
-                <div className="item-title">{name}</div>
-                <div className="item-img">
-                  <Image height={'100%'} alt="-" src={`${preview}`} />
+      {isLoading
+        ? (
+          <Loader />
+          )
+        : (
+          <TriggersListStyled>
+            {triggers?.map(({ id, preview, name }) => (
+              <div key={id} className="item">
+                <div className="item-inner">
+                  <div className="item-title">{name}</div>
+                  <div className="item-img">
+                    <Image height="100%" alt="-" src={`${preview}`} />
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
-        </TriggersListStyled>
-      )}
+            ))}
+          </TriggersListStyled>
+          )}
     </Fragment>
   )
 })

@@ -19,10 +19,14 @@ export const ErrorBoundary: FC<ErrorBoundaryProps> = (props, error: Error | null
       <div className="error">
         <TbFaceIdError />
         <div>
-          <span>Smth wrong</span> {componentName}
+          <span>Smth wrong</span>
+          {' '}
+          {componentName}
         </div>
         <div>
-          <span>Error message</span> {message}
+          <span>Error message</span>
+          {' '}
+          {message}
         </div>
         <div className="footer">sorry</div>
       </div>

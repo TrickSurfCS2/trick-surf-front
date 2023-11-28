@@ -125,4 +125,5 @@ declare global {
 declare global {
   // @ts-ignore
   export type { AxiosInstance, AxiosResponse } from 'axios'
+  import('axios')
 }

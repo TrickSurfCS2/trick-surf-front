@@ -1,7 +1,7 @@
 // Set map by paarams
 //* ------------------------------------------------------------------------------------------ *//
 
-export const useSetMap = () => {
+export function useSetMap() {
   const { appStore } = useAppStore()
   const { map } = useParams()
 

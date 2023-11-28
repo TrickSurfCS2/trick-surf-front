@@ -5,7 +5,7 @@ import { FooterStyled } from './style'
 // Footer component
 //* ------------------------------------------------------------------------------------------ *//
 export const Footer = observer(
-  forwardRef(function Footer() {
+  forwardRef(() => {
     return (
       <FooterStyled>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none">
@@ -30,13 +30,14 @@ export const Footer = observer(
           <span>|</span>
           <a
             href="https://www.youtube.com/channel/UCu-39MYQr8I7smURAUeYchw"
-            className="content-item">
+            className="content-item"
+          >
             YouTube
           </a>
         </div>
       </FooterStyled>
     )
-  })
+  }),
 )
 
 export default Footer

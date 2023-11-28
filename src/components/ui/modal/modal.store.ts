@@ -1,4 +1,4 @@
-﻿import { makeObservable, observable } from 'mobx'
+import { makeObservable, observable } from 'mobx'
 import type { ElementType, ReactNode } from 'react'
 
 import { BiLoader } from 'react-icons/bi'
@@ -11,7 +11,7 @@ import type { ButtonController } from '../button/button.store'
 export enum ModalType {
   'CONFIRM',
   'ALERT',
-  'PROCESSING'
+  'PROCESSING',
 }
 
 export interface ModalController {
@@ -38,7 +38,7 @@ export enum AlertType {
   Error = 'error',
   Success = 'success',
   Info = 'info',
-  Processing = 'processing'
+  Processing = 'processing',
 }
 
 interface ShowDialogParams {
@@ -89,7 +89,7 @@ export class ModalStore extends BaseDialogStore {
     error: 'Ошибка!',
     success: 'Успех',
     info: 'Информация',
-    processing: 'Cообщение системы'
+    processing: 'Cообщение системы',
   }
 
   controller: ModalController
@@ -99,7 +99,7 @@ export class ModalStore extends BaseDialogStore {
     this.showParams.buttons = []
 
     makeObservable(this, {
-      showKey: observable
+      showKey: observable,
     })
 
     this.controller = this.getController()
@@ -123,16 +123,16 @@ export class ModalStore extends BaseDialogStore {
           ...args,
           onClick: (buttonController: ButtonController, e: React.MouseEvent) => {
             onClick(this.controller, buttonController, e)
-          }
+          },
         }
-      })
+      }),
     )
 
     this.showModal({
       ...rest,
       alertType: alertType || AlertType.Info,
       type: ModalType.ALERT,
-      buttons: _buttons
+      buttons: _buttons,
     })
   }
 
@@ -149,14 +149,13 @@ export class ModalStore extends BaseDialogStore {
         {
           text: okText || 'Ok',
           onClick: (buttonStore, e) => {
-            if (okClick) {
+            if (okClick)
               okClick(this.controller, buttonStore, e)
-            } else {
+            else
               this.hideDialog()
-            }
-          }
-        }
-      ]
+          },
+        },
+      ],
     })
   }
 
@@ -182,24 +181,22 @@ export class ModalStore extends BaseDialogStore {
         {
           text: cancelText || 'Отмена',
           onClick: (buttonStore, e) => {
-            if (cancelClick) {
+            if (cancelClick)
               cancelClick(this.controller, buttonStore, e)
-            } else {
+            else
               this.hideDialog()
-            }
-          }
+          },
         },
         {
           text: okText || 'Ok',
           onClick: (buttonStore, e) => {
-            if (okClick) {
+            if (okClick)
               okClick(this.controller, buttonStore, e)
-            } else {
+            else
               this.hideDialog()
-            }
-          }
-        }
-      ]
+          },
+        },
+      ],
     })
   }
 
@@ -209,20 +206,20 @@ export class ModalStore extends BaseDialogStore {
       message,
       alertType: AlertType.Processing,
       type: ModalType.PROCESSING,
-      buttons: []
+      buttons: [],
     })
   }
 
   getController = (): ModalController => {
     return {
       hide: () => this.hideDialog(),
-      showLoader: (message) => this.showLoader(message),
-      showConfirm: (params) => this.showConfirm(params),
-      showCustomDialog: (params) => this.showCustomDialog(params),
-      showError: (params) => this.showError(params),
-      showInfo: (params) => this.showInfo(params),
-      showSuccess: (params) => this.showSuccess(params),
-      showWarning: (params) => this.showWarning(params)
+      showLoader: message => this.showLoader(message),
+      showConfirm: params => this.showConfirm(params),
+      showCustomDialog: params => this.showCustomDialog(params),
+      showError: params => this.showError(params),
+      showInfo: params => this.showInfo(params),
+      showSuccess: params => this.showSuccess(params),
+      showWarning: params => this.showWarning(params),
     }
   }
 }

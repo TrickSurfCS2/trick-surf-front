@@ -33,7 +33,7 @@ type GLTFResult = GLTF & {
   }
 }
 
-const Model = (props: { url: string; params?: GroupProps }) => {
+function Model(props: { url: string, params?: GroupProps }) {
   const { url, params } = props
 
   const { scene } = useGLTF(url) as GLTFResult

@@ -1,3 +1,5 @@
+/* eslint-disable style/multiline-ternary */
+
 import { Image } from 'antd'
 
 import cn from 'classnames'
@@ -11,7 +13,7 @@ interface Props {
   triggers: Trigger[]
 }
 
-const TricksItem = (props: Props) => {
+function TricksItem(props: Props) {
   const { trick, triggers } = props
 
   const [isActive, setIsActive] = useState<boolean>(false)
@@ -21,9 +23,9 @@ const TricksItem = (props: Props) => {
     if (!route) {
       setRoute(
         deepCopy(
-          (trick.routeIds?.split(',')?.map((id) => triggers.find((val) => val.id === +id)) ??
-            []) as Trigger[]
-        )
+          (trick.routeIds?.split(',')?.map(id => triggers.find(val => val.id === +id))
+          ?? []) as Trigger[],
+        ),
       )
     }
     setIsActive(!isActive)
@@ -33,7 +35,8 @@ const TricksItem = (props: Props) => {
     <TricksItemsStyled
       onClick={handleClick(trick)}
       key={trick.id}
-      className={cn({ active: isActive })}>
+      className={cn({ active: isActive })}
+    >
       <div className="inner">
         <div className={cn('item', 'item-ind')}>
           <div>{trick.index}</div>
@@ -56,15 +59,15 @@ const TricksItem = (props: Props) => {
         </div>
       </div>
       {isActive && route && (
-        <div onClick={(e) => e.stopPropagation()} className="info">
+        <div onClick={e => e.stopPropagation()} className="info">
           <div className="route">
             <Image.PreviewGroup>
               {route.map((trigger, key) => (
-                <div key={trick.id + '|' + trigger.id + '|' + key} className="route-item">
+                <div key={`${trick.id}|${trigger.id}|${key}`} className="route-item">
                   <div className={cn('route-content')}>
                     <div className="route-title">{trigger.name}</div>
                     <div className="route-img">
-                      <Image height={'100%'} src={trigger.preview ?? ''} />
+                      <Image height="100%" src={trigger.preview ?? ''} />
                     </div>
                     <div className="route-count">{key + 1}</div>
                   </div>
@@ -73,7 +76,7 @@ const TricksItem = (props: Props) => {
             </Image.PreviewGroup>
           </div>
           <div className="additional">
-            {/* // TODO 
+            {/* // TODO
             <div className="record">
               <div className="record-item">
                 {!wr.isLoading ? (
@@ -125,11 +128,11 @@ const TricksItem = (props: Props) => {
                 // <PlayerEmbend reverse={true} player={trick.authorSteamid} />
                 <div>{trick.authorSteamid64}</div>
               ) : (
-                <div>unknow</div>
+                <div>unknown</div>
               )}
               <div className="author-date-add">{new Date(trick.createdAt).toISOString()}</div>
             </div>
-            {/* // TODO 
+            {/* // TODO
             <div className={styles.related}>
                 <span
                   onClick={() => setIsRelatedActive(!isRelatedActive)}

@@ -26,19 +26,23 @@ export const Dialog: FC<IDialogProps> = observer((props) => {
 
   observe(dialogState, 'isVisible', ({ newValue }) => switchLock(newValue as boolean))
 
-  // eslint-disable-next-line no-nested-ternary
-  return isHidden ? null : isCustomStyle ? (
-    <>{children}</>
-  ) : (
-    <DialogWrapperStyled
-      onMouseDown={() => isOutsideClick && hideDialog()}
-      isNotAnimate={!!isNotAnimate}
-      isVisible={isVisible}
-      isLock={isLock}
-      delay={delay ?? 0}>
-      <div onMouseDown={(e) => e.stopPropagation()} className={cn('dialog', className)}>
-        {children}
-      </div>
-    </DialogWrapperStyled>
-  )
+  return isHidden
+    ? null
+    : isCustomStyle
+      ? (
+        <>{children}</>
+        )
+      : (
+        <DialogWrapperStyled
+          onMouseDown={() => isOutsideClick && hideDialog()}
+          isNotAnimate={!!isNotAnimate}
+          isVisible={isVisible}
+          isLock={isLock}
+          delay={delay ?? 0}
+        >
+          <div onMouseDown={e => e.stopPropagation()} className={cn('dialog', className)}>
+            {children}
+          </div>
+        </DialogWrapperStyled>
+        )
 })

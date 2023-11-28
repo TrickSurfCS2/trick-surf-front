@@ -1,4 +1,3 @@
-/* eslint-disable import/order */
 import type { QUnitType } from 'dayjs'
 import dayjs from 'dayjs'
 import 'dayjs/locale/ru'
@@ -24,19 +23,16 @@ export enum DateFormat {
   'MM-DD',
   'DD/MM',
   'dddd',
-  'YYYY'
+  'YYYY',
 }
 
-export const isTwoDateDifference = (
-  atDate: string | Date,
-  toDate: string | Date,
-  unit: QUnitType
-) => {
+export function isTwoDateDifference(atDate: string | Date, toDate: string | Date, unit: QUnitType) {
   const at = dayjs(atDate)
   const to = dayjs(toDate)
 
   return to.diff(at, unit)
 }
 
-export const parseDate = (time: string | Date, format: keyof typeof DateFormat) =>
-  dayjs(time).format(format)
+export function parseDate(time: string | Date, format: keyof typeof DateFormat) {
+  return dayjs(time).format(format)
+}

@@ -4,7 +4,7 @@ import { v4 } from 'uuid'
 
 export type TControllerRef<T> = MutableRefObject<T | undefined>
 export type Size = 's' | 'm' | 'l'
-export const getId = (): string => {
+export function getId(): string {
   let uuid = v4()
   const possible = 'abcdef'
   uuid = uuid.replace(uuid.charAt(0), possible.charAt(Math.floor(Math.random() * possible.length)))
@@ -34,6 +34,6 @@ export function deepCopy<T>(value: T): T {
 
 export function combineArrays<T>(...arrays: (T[] | undefined)[]): T[] {
   const combined: T[] = []
-  arrays.forEach((a) => a?.forEach((v) => v && combined.push(v)))
+  arrays.forEach(a => a?.forEach(v => v && combined.push(v)))
   return combined
 }

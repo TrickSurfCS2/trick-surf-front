@@ -23,7 +23,7 @@ export default class UserStore {
     return user ?? null
   }
 
-  saveCredential = (data: { accessToken: string; refreshToken: string }) => {
+  saveCredential = (data: { accessToken: string, refreshToken: string }) => {
     localStorage.setItem(AUTH_KEY, data.accessToken)
     localStorage.setItem(AUTH_REFRESH_KEY, data.refreshToken)
   }

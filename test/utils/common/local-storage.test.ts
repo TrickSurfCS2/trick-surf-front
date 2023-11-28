@@ -1,14 +1,14 @@
-import { expect, describe, it, beforeEach } from 'vitest'
+import { beforeEach, describe, expect, it } from 'vitest'
 
 import { LocalStorage } from '../../../src/utils/common/local-storage'
 
 import type {
+  ILocalStorageEntryExpireAt,
   ILocalStorageEntryName,
   ILocalStorageEntryValue,
-  ILocalStorageEntryExpireAt
 } from '../../../src/utils/common/local-storage'
 
-describe('LocalStorage class', () => {
+describe('localStorage class', () => {
   beforeEach(() => {
     localStorage.clear()
   })
@@ -27,7 +27,7 @@ describe('LocalStorage class', () => {
     const expireAt: ILocalStorageEntryExpireAt = new Date(
       now.getFullYear(),
       now.getMonth(),
-      now.getDate() + 1
+      now.getDate() + 1,
     )
 
     LocalStorage.setItem(name, value, expireAt)

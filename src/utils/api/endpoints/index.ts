@@ -11,5 +11,5 @@ export const api = {
   auth: AuthApi(instance),
   map: MapApi(instance),
   trick: TrickApi(instance),
-  trigger: TriggerApi(instance)
+  trigger: TriggerApi(instance),
 }

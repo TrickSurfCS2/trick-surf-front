@@ -5,14 +5,14 @@ import { useIsomorphicLayoutEffect } from './events/use-isomorphic-layout-effect
 function isiOS() {
   return (
     ['iPad Simulator', 'iPhone Simulator', 'iPod Simulator', 'iPad', 'iPhone', 'iPod'].includes(
-      navigator.platform
-    ) ||
+      navigator.platform,
+    )
     // iPad on iOS 13 detection
-    (navigator.userAgent.includes('Mac') && 'ontouchend' in document)
+    || (navigator.userAgent.includes('Mac') && 'ontouchend' in document)
   )
 }
 
-export const useScrollLock = () => {
+export function useScrollLock() {
   const scrollOffset = useRef(0)
 
   const lockScroll = useCallback(() => {
@@ -43,11 +43,10 @@ export const useScrollLock = () => {
   }, [])
 
   const switchLock = (value: boolean) => {
-    if (value) {
+    if (value)
       lockScroll()
-    } else {
+    else
       unlockScroll()
-    }
   }
 
   useIsomorphicLayoutEffect(() => {
@@ -58,6 +57,6 @@ export const useScrollLock = () => {
   return {
     switchLock,
     lockScroll,
-    unlockScroll
+    unlockScroll,
   }
 }

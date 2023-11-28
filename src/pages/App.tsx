@@ -7,20 +7,6 @@ import ThemeProvider from '#/contexts/theme'
 import { useAppInitialize } from '#/hooks/user-app-initialize.hook'
 import { AppRoutes } from '#/utils/router'
 
-// App
-//* ------------------------------------------------------------------------------------------ *//
-const App = () => (
-  <RootStoreProvider>
-    <ErrorBoundary componentName="-">
-      <ThemeProvider>
-        <AppContent />
-      </ThemeProvider>
-    </ErrorBoundary>
-  </RootStoreProvider>
-)
-
-export default App
-
 // App content page
 //* ------------------------------------------------------------------------------------------ *//
 const AppContent = observer(() => {
@@ -39,3 +25,19 @@ const AppContent = observer(() => {
     </>
   )
 })
+
+// App
+//* ------------------------------------------------------------------------------------------ *//
+function App() {
+  return (
+    <RootStoreProvider>
+      <ErrorBoundary componentName="-">
+        <ThemeProvider>
+          <AppContent />
+        </ThemeProvider>
+      </ErrorBoundary>
+    </RootStoreProvider>
+  )
+}
+
+export default App

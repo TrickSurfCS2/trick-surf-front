@@ -9,25 +9,18 @@ interface Props {
 
 // Initial setup
 //* ------------------------------------------------------------------------------------------ *//
-export const useAppInitialize = (props: Props): boolean => {
+export function useAppInitialize(props: Props): boolean {
   const { modalRef } = props
 
   const [isInitialized, setIsInitialized] = useState<boolean>(false)
 
   const { appStore, userStore } = useAppStore()
 
-  useIsomorphicLayoutEffect(() => {
-    if (!isInitialized) {
-      setIsInitialized(true)
-      initialize()
-    }
-  }, [])
-
   const initialize = async () => {
     appStore.setIsAppLoading(true)
 
     setHeadersInstance({
-      common: { Authorization: `Bearer ${localStorage.getItem(TOKEN_KEY)}` }
+      common: { Authorization: `Bearer ${localStorage.getItem(TOKEN_KEY)}` },
     })
     setupBaseUrl(!/(dev|localhost)/.test(window.location.host))
 
@@ -38,6 +31,13 @@ export const useAppInitialize = (props: Props): boolean => {
 
     appStore.setIsAppLoading(false)
   }
+
+  useIsomorphicLayoutEffect(() => {
+    if (!isInitialized) {
+      setIsInitialized(true)
+      initialize()
+    }
+  }, [])
 
   return !appStore.isAppLoading && !!isInitialized
 }

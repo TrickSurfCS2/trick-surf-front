@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import type { RefObject } from 'react'
 import { useEffect, useRef } from 'react'
 
@@ -10,17 +9,17 @@ export function useEventListener<K extends keyof WindowEventMap>(
 ): void
 export function useEventListener<
   K extends keyof HTMLElementEventMap,
-  T extends HTMLElement = HTMLDivElement
+  T extends HTMLElement = HTMLDivElement,
 >(eventName: K, handler: (event: HTMLElementEventMap[K]) => void, element: RefObject<T>): void
 
 export function useEventListener<
   KW extends keyof WindowEventMap,
   KH extends keyof HTMLElementEventMap,
-  T extends HTMLElement | void = void
+  T extends HTMLElement | void = void,
 >(
   eventName: KW | KH,
   handler: (event: WindowEventMap[KW] | HTMLElementEventMap[KH] | Event) => void,
-  element?: RefObject<T>
+  element?: RefObject<T>,
 ) {
   // Create a ref that stores handler
   const savedHandler = useRef(handler)
@@ -32,15 +31,13 @@ export function useEventListener<
   useEffect(() => {
     // Define the listening target
     const targetElement: T | Window = element?.current || window
-    if (!(targetElement && targetElement.addEventListener)) {
+    if (!(targetElement && targetElement.addEventListener))
       return
-    }
 
-    const eventListener: typeof handler = (event) => savedHandler.current(event)
+    const eventListener: typeof handler = event => savedHandler.current(event)
 
     targetElement.addEventListener(eventName, eventListener)
 
-    // eslint-disable-next-line consistent-return
     return () => {
       targetElement.removeEventListener(eventName, eventListener)
     }

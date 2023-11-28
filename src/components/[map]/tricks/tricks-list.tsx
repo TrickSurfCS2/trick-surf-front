@@ -19,13 +19,15 @@ const TricksList = observer((props: Props) => {
   return (
     <Fragment>
       <TricksListHeader />
-      {isLoading ? (
-        <Loader />
-      ) : (
-        <TricksListStyled>
-          {tricks?.map((trick) => <TricksItem key={trick.id} trick={trick} triggers={triggers} />)}
-        </TricksListStyled>
-      )}
+      {isLoading
+        ? (
+          <Loader />
+          )
+        : (
+          <TricksListStyled>
+            {tricks?.map(trick => <TricksItem key={trick.id} trick={trick} triggers={triggers} />)}
+          </TricksListStyled>
+          )}
     </Fragment>
   )
 })

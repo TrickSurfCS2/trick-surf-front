@@ -1,6 +1,6 @@
 import { makeAutoObservable } from 'mobx'
 
-import type { ButtonProps as ButtonProps } from './button'
+import type { ButtonProps } from './button'
 
 export interface ButtonController {
   getState: () => ButtonState
@@ -16,15 +16,16 @@ export class ButtonStore {
   state: ButtonState = {
     isDisabled: false,
     isPending: false,
-    isVisible: true
+    isVisible: true,
   }
+
   props = {} as ButtonProps
 
   constructor(props: ButtonProps) {
     const { ...rest } = props
 
     this.props = {
-      ...rest
+      ...rest,
     }
 
     makeAutoObservable(this.state)
@@ -32,10 +33,11 @@ export class ButtonStore {
 
   get stateGetter(): ButtonState {
     return {
-      ...this.state
+      ...this.state,
     }
   }
+
   controller: ButtonController = {
-    getState: () => this.stateGetter
+    getState: () => this.stateGetter,
   }
 }

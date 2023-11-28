@@ -3,7 +3,7 @@ import { Component } from 'react'
 
 export function Catch<Props extends object>(
   component: IErrorHandlingComponent<Props>,
-  errorHandler?: IErrorHandler
+  errorHandler?: IErrorHandler,
 ): ClassType<Props, Component<Props>, ComponentClass<Props>> {
   return class extends Component<Props, IErrorState> {
     static getDerivedStateFromError(error: Error): IErrorState {
@@ -14,14 +14,13 @@ export function Catch<Props extends object>(
       super(props)
 
       this.state = {
-        error: null
+        error: null,
       }
     }
 
     componentDidCatch(error: Error, info: ErrorInfo): void {
-      if (errorHandler) {
+      if (errorHandler)
         errorHandler(error, info)
-      }
     }
 
     render(): ReactNode {

@@ -14,9 +14,8 @@ const TricksLayout: FC<PropsWithChildren> = observer(({ children }) => {
   const { state, fetchTricks } = store.tricksStore
 
   useEffect(() => {
-    if (!state.isLoaded && !!map.id) {
+    if (!state.isLoaded && !!map.id)
       fetchTricks(map.id)
-    }
   }, [map.id])
 
   return (

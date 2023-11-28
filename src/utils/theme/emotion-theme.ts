@@ -7,21 +7,21 @@ const Breakpoints = {
   lg: 992,
   xl: 1200,
   xxl: 1440,
-  xxxl: 1920
+  xxxl: 1920,
 }
 
-export const breakpoint = (n: keyof typeof Breakpoints, size?: 'min' | 'max'): string => {
+export function breakpoint(n: keyof typeof Breakpoints, size?: 'min' | 'max'): string {
   return `@media (${size ?? 'max'}-width: ${Breakpoints[n]}px)`
 }
 
-export const pxToRem = (pxValue: number, baseFontSize: number): string => {
+export function pxToRem(pxValue: number, baseFontSize: number): string {
   return `${pxValue / baseFontSize || 16}rem`
 }
 
 const sizes = {
   header: { height: '50px' },
   footer: { height: '60px' },
-  content: { width: '1100px' }
+  content: { width: '1100px' },
 }
 
 const font = {
@@ -30,13 +30,13 @@ const font = {
     monospace: `
       "sfmono-regular, menlo, monaco, consolas, 'Liberation Mono', 'Courier New'"
     `,
-    text: 'Rubik'
+    text: 'Rubik',
   },
   size: {
     base: '1rem !default',
     lg: '1.25rem !default',
-    sm: '0.875rem !default'
-  }
+    sm: '0.875rem !default',
+  },
 }
 
 const paletteLight = {
@@ -55,7 +55,7 @@ const paletteLight = {
     accepted: 'rgb(114, 255, 114)',
     declined: 'rgb(255, 26, 26)',
     //
-    header: '#e0e0e0'
+    header: '#e0e0e0',
   },
   bg: {
     main: '#eeeeee',
@@ -66,16 +66,16 @@ const paletteLight = {
     highlight: '#6db6ff',
     // [Header]
     header: '#232325',
-    headerBlur: 'rgba(24, 24, 24, 0.8)'
+    headerBlur: 'rgba(24, 24, 24, 0.8)',
   },
   border: {
     header: '#7e7e7e',
     title: '#161b22',
-    content: '#7e7e7e'
+    content: '#7e7e7e',
   },
   shadow: {
-    itemContent: '0 0 5px rgba(0, 0, 0, 0.25)'
-  }
+    itemContent: '0 0 5px rgba(0, 0, 0, 0.25)',
+  },
 }
 
 const paletteDark = {
@@ -94,7 +94,7 @@ const paletteDark = {
     accepted: 'rgb(114, 255, 114)',
     declined: 'rgb(255, 26, 26)',
     // [Header]
-    header: '#e0e0e0'
+    header: '#e0e0e0',
   },
   bg: {
     main: '#1e1f20',
@@ -105,16 +105,16 @@ const paletteDark = {
     highlight: '#f65341',
     // [Header]
     header: '#292929',
-    headerBlur: 'rgba(24, 24, 24, 0.8)'
+    headerBlur: 'rgba(24, 24, 24, 0.8)',
   },
   border: {
     header: '#474747',
     title: '#6c757d',
-    content: '#474747'
+    content: '#474747',
   },
   shadow: {
-    itemContent: '0 0 5px rgba(0, 0, 0, 0.25)'
-  }
+    itemContent: '0 0 5px rgba(0, 0, 0, 0.25)',
+  },
 }
 
 const paletteBlue = {
@@ -133,7 +133,7 @@ const paletteBlue = {
     accepted: 'rgb(114, 255, 114)',
     declined: 'rgb(255, 26, 26)',
     // [Header]
-    header: '#e0e0e0'
+    header: '#e0e0e0',
   },
   bg: {
     main: '#0d1117',
@@ -144,16 +144,16 @@ const paletteBlue = {
     highlight: '#6db6ff',
     // [Header]
     header: '#1d242d',
-    headerBlur: 'rgba(22, 27, 34, 0.8)'
+    headerBlur: 'rgba(22, 27, 34, 0.8)',
   },
   border: {
     header: '#161b22',
     title: '#5d6a7e',
-    content: '#253241'
+    content: '#253241',
   },
   shadow: {
-    itemContent: '0 0 5px rgba(0, 0, 0, 0.25)'
-  }
+    itemContent: '0 0 5px rgba(0, 0, 0, 0.25)',
+  },
 }
 
 export type ThemeTypes = typeof themeLigth
@@ -161,29 +161,29 @@ export type ThemeTypes = typeof themeLigth
 export const themeLigth = {
   palette: paletteLight,
   font,
-  sizes
+  sizes,
 }
 
 export const themeDark: ThemeTypes = {
   ...themeLigth,
   palette: {
     ...themeLigth.palette,
-    ...paletteDark
-  }
+    ...paletteDark,
+  },
 }
 
 export const themeBlue: ThemeTypes = {
   ...themeLigth,
   palette: {
     ...themeLigth.palette,
-    ...paletteBlue
-  }
+    ...paletteBlue,
+  },
 }
 
 export const emotionThemes: Record<string, ThemeTypes> = {
   light: themeLigth,
   dark: themeDark,
-  blue: themeBlue
+  blue: themeBlue,
 }
 
 export const getEmotionThemes = (theme: ThemeVarious): ThemeTypes => emotionThemes[theme]

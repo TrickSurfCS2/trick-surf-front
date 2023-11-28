@@ -5,5 +5,5 @@ const VITE_API_URL_DEV = import.meta.env.VITE_API_URL_DEV ?? 'https://api.xsolar
 
 export const urls: Endpoints = {
   development: VITE_API_URL_DEV,
-  production: VITE_API_URL_PROD
+  production: VITE_API_URL_PROD,
 }

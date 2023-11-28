@@ -1,8 +1,8 @@
 import { observer } from 'mobx-react-lite'
 import type { ForwardedRef } from 'react'
 
-import { GiSun, GiNightSleep } from 'react-icons/gi'
-import { IoMdRainy, IoMdMenu } from 'react-icons/io'
+import { GiNightSleep, GiSun } from 'react-icons/gi'
+import { IoMdMenu, IoMdRainy } from 'react-icons/io'
 
 import { HeaderStyled } from './style'
 
@@ -11,7 +11,7 @@ import type { ThemeVarious } from '#/contexts/theme'
 const themeIcon = new Map<ThemeVarious, JSX.Element>([
   ['light', <GiSun key={1} />],
   ['dark', <GiNightSleep key={2} />],
-  ['blue', <IoMdRainy key={3} />]
+  ['blue', <IoMdRainy key={3} />],
 ])
 
 interface Props {
@@ -21,14 +21,14 @@ interface Props {
 // Header component
 //* ------------------------------------------------------------------------------------------ *//
 export const Header = observer(
-  forwardRef(function Header(props: Props, ref: ForwardedRef<HTMLDivElement>) {
+  forwardRef((props: Props, ref: ForwardedRef<HTMLDivElement>) => {
     const { onMenuClick } = props
 
     const { appStore } = useAppStore()
     const {
       state: { theme },
       setTheme,
-      headerOpacity
+      headerOpacity,
     } = appStore
 
     const handleClickTheme = () => {
@@ -59,7 +59,7 @@ export const Header = observer(
         {/* <Menu /> */}
       </HeaderStyled>
     )
-  })
+  }),
 )
 
 export default Header

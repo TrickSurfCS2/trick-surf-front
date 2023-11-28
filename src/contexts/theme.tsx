@@ -1,5 +1,5 @@
 import { observer } from 'mobx-react-lite'
-import type { Dispatch, PropsWithChildren, SetStateAction, FC } from 'react'
+import type { Dispatch, FC, PropsWithChildren, SetStateAction } from 'react'
 
 import { ConfigProvider as ThemeAntdProvider } from 'antd'
 import ruRU from 'antd/locale/ru_RU'
@@ -9,7 +9,7 @@ import { ThemeProvider as ThemeEmotionProvider } from '@emotion/react'
 import { getAntdThemes } from '#/utils/theme/antd-theme'
 import { getEmotionThemes } from '#/utils/theme/emotion-theme'
 
-export type ThemeValue = {
+export interface ThemeValue {
   themeContext: ThemeVarious
   setThemeContext: Dispatch<SetStateAction<ThemeVarious>>
 }

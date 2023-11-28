@@ -2,17 +2,19 @@ import { AUTH_KEY } from './constant'
 
 export const isWindowExists = () => typeof window !== 'undefined'
 
-export const randomNum = (min: number, max: number): number =>
-  Math.floor(Math.random() * (max - min)) + min
+export function randomNum(min: number, max: number): number {
+  return Math.floor(Math.random() * (max - min)) + min
+}
 
-export const getUrlParam = (paramName: string): string | null =>
-  new URLSearchParams(window.location.search).get(paramName)
+export function getUrlParam(paramName: string): string | null {
+  return new URLSearchParams(window.location.search).get(paramName)
+}
 
-export const getBearerToken = () => {
+export function getBearerToken() {
   return `Bearer ${localStorage.getItem(AUTH_KEY)}`
 }
 
-export const createMdWithExtension = (fileContent: string, extension: string) => {
+export function createMdWithExtension(fileContent: string, extension: string) {
   const allowExtension = [
     'sh',
     'xml',
@@ -24,13 +26,14 @@ export const createMdWithExtension = (fileContent: string, extension: string) =>
     'json',
     'key',
     'pem',
-    'cert'
+    'cert',
   ]
 
-  const isRewrite =
-    !fileContent.startsWith('```') && allowExtension.find((f) => f.includes(extension))
+  const isRewrite
+    = !fileContent.startsWith('```') && allowExtension.find(f => f.includes(extension))
 
-  if (!isRewrite) return fileContent
+  if (!isRewrite)
+    return fileContent
 
-  return '```' + extension + '\n' + fileContent + '```'
+  return `\`\`\`${extension}\n${fileContent}\`\`\``
 }

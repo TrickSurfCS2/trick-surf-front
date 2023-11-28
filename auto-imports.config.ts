@@ -8,17 +8,17 @@ export const configAutoImport = {
     'mobx',
     'mobx-react-lite',
     {
-      uuid: ['v4']
+      uuid: ['v4'],
     },
     {
-      axios: [['default', 'axios']],
-      '@emotion/styled': [['default', 'styled']]
+      'axios': [['default', 'axios']],
+      '@emotion/styled': [['default', 'styled']],
     },
     {
       from: 'axios',
       imports: ['AxiosInstance', 'AxiosResponse'],
-      type: true
-    }
+      type: true,
+    },
   ],
   dirs: [
     './src/store/',
@@ -29,7 +29,7 @@ export const configAutoImport = {
     './src/utils/common/',
     './src/utils/api/',
     './src/utils/regexp/',
-    './src/utils/router/'
+    './src/utils/router/',
   ],
-  dts: './src/types/declare/auto-imports.d.ts'
+  dts: './src/types/declare/auto-imports.d.ts',
 } as Options

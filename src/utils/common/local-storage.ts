@@ -16,9 +16,8 @@ export class LocalStorage {
 
   static getItem<T>(name: ILocalStorageEntryName): T | null {
     const entry = this._storage?.getItem(name)
-    if (!entry) {
+    if (!entry)
       return null
-    }
 
     try {
       const data: ILocalStorageEntry<T> = JSON.parse(entry)
@@ -30,7 +29,8 @@ export class LocalStorage {
       }
 
       return value
-    } catch (_) {
+    }
+    catch (_) {
       return entry ? (entry as unknown as T) : null
     }
   }
@@ -38,14 +38,14 @@ export class LocalStorage {
   static setItem<T>(
     name: ILocalStorageEntryName,
     value: ILocalStorageEntryValue<T>,
-    expireAt?: ILocalStorageEntryExpireAt
+    expireAt?: ILocalStorageEntryExpireAt,
   ): void {
     this._storage?.setItem(
       name,
       JSON.stringify({
         value,
-        expireAt: expireAt?.getTime()
-      })
+        expireAt: expireAt?.getTime(),
+      }),
     )
   }
 
@@ -54,6 +54,6 @@ export class LocalStorage {
   }
 
   static removeExpiredItems() {
-    Object.keys(localStorage).forEach((key) => this.getItem(key))
+    Object.keys(localStorage).forEach(key => this.getItem(key))
   }
 }

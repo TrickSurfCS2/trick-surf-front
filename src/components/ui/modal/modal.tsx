@@ -23,9 +23,9 @@ interface ModalProps {
 const Modal: FC<ModalProps> = observer(({ controllerRef, zIndex = 999 }) => {
   const store = useNewStore(ModalStore)
 
-  if (!controllerRef) {
+  if (!controllerRef)
     controllerRef = useRef<ModalController>()
-  }
+
   setController(store, controllerRef)
 
   const modalStyle = { zIndex } as CSSProperties
@@ -46,13 +46,15 @@ const Modal: FC<ModalProps> = observer(({ controllerRef, zIndex = 999 }) => {
             )}
           </h2>
           <p className="modal-promt">{message}</p>
-          {buttons.length !== 0 ? (
-            <div className="modal-footer">
-              {buttons.map((buttonProps, idx) => (
-                <Button key={`btn${idx}`} {...buttonProps} />
-              ))}
-            </div>
-          ) : null}
+          {buttons.length !== 0
+            ? (
+              <div className="modal-footer">
+                {buttons.map((buttonProps, idx) => (
+                  <Button key={`btn${idx}`} {...buttonProps} />
+                ))}
+              </div>
+              )
+            : null}
         </div>
       </ModalStyled>
     </Dialog>

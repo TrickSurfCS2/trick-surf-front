@@ -3,7 +3,7 @@ export enum Apis {
   Auth = 'auth',
   Map = 'map',
   Trick = 'trick',
-  Trigger = 'trigger'
+  Trigger = 'trigger',
 }
 
 export interface Endpoints {

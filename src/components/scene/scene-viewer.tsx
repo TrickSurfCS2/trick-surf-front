@@ -1,3 +1,4 @@
+/* eslint-disable ts/no-use-before-define */
 import type { FC } from 'react'
 import { Suspense, useRef } from 'react'
 
@@ -8,9 +9,15 @@ import styled from '@emotion/styled'
 
 import Scene from './scene'
 
-const Loader = () => {
+function Loader() {
   const { progress } = useProgress()
-  return <Html center>{progress} % loaded</Html>
+  return (
+    <Html center>
+      {progress}
+      {' '}
+      % loaded
+    </Html>
+  )
 }
 
 // Scene viewer component
@@ -22,7 +29,8 @@ const SceneViewer: FC = () => {
     <SceneViewerStyled
       ref={(el) => {
         canvasContainerRef.current = el
-      }}>
+      }}
+    >
       <Canvas shadows camera={{ position: [0, 0, 4], fov: 60, near: 0.025 }}>
         <Suspense fallback={<Loader />}>
           <Scene />

@@ -24,7 +24,7 @@ export default class AppStore {
     mediaType: 'screen',
     selectedMap: {} as Map,
     maps: [],
-    isAppLoading: true
+    isAppLoading: true,
   }
 
   constructor() {
@@ -41,7 +41,7 @@ export default class AppStore {
       isOverFirstScreenHeight: computed,
       isOverPostTitleHeight: computed,
       isPadOrMobile: computed,
-      isNarrowThanLaptop: computed
+      isNarrowThanLaptop: computed,
     })
 
     makeAutoObservable(this.state)
@@ -51,14 +51,15 @@ export default class AppStore {
   setScroll = (scroll: ScrollRecord): ScrollRecord => (this.state.scroll = scroll)
   setViewport = (viewport: ViewportRecord): ViewportRecord => (this.state.viewport = viewport)
   findAndSetMap = (name?: string): Map =>
-    (this.state.selectedMap = this.state.maps.find((f) => f.name === name) ?? this.state.maps[0])
+    (this.state.selectedMap = this.state.maps.find(f => f.name === name) ?? this.state.maps[0])
+
   setTheme = (themeType: ThemeVarious | null): ThemeVarious => {
     localStorage.setItem(THEME, themeType || 'blue')
     return (this.state.theme = themeType || 'blue')
   }
 
   setModalControllerRef = (
-    ref: TControllerRef<ModalController>
+    ref: TControllerRef<ModalController>,
   ): TControllerRef<ModalController> => {
     return (this._modalDialogControllerRef = ref)
   }
@@ -66,7 +67,7 @@ export default class AppStore {
   updateScroll(): void {
     this.setScroll({
       dir: null,
-      pos: window.pageYOffset
+      pos: window.pageYOffset,
     })
   }
 
@@ -76,14 +77,14 @@ export default class AppStore {
     const { hpad, pad, mobile, h, w } = this.state.viewport
 
     if (
-      h &&
+      h
       // chrome mobile delta == 56
-      Math.abs(innerHeight - h) < 80 &&
-      width === w &&
-      (hpad || pad || mobile)
-    ) {
+      && Math.abs(innerHeight - h) < 80
+      && width === w
+      && (hpad || pad || mobile)
+    )
       return
-    }
+
     this.setViewport({
       w: width,
       h: innerHeight,
@@ -91,7 +92,7 @@ export default class AppStore {
       pad: window.innerWidth <= 768 && window.innerWidth > 568,
       hpad: window.innerWidth <= 1100 && window.innerWidth > 768,
       wider: window.innerWidth > 1100 && window.innerWidth < 1920,
-      widest: window.innerWidth >= 1920
+      widest: window.innerWidth >= 1920,
     })
   }
 
@@ -117,24 +118,23 @@ export default class AppStore {
 
     const opacity = pos >= threshold ? 0 : 1 - Math.floor((pos / threshold) * 100) / 100
 
-    return isNaN(opacity) ? 1 : opacity
+    return Number.isNaN(opacity) ? 1 : opacity
   }
 
   get isOverFirstScreenHeight(): boolean {
     const { pos } = this.state.scroll
 
-    if (!isClientSide()) {
+    if (!isClientSide())
       return false
-    }
+
     return pos > window.innerHeight || pos > screen.height
   }
 
   get isOverPostTitleHeight(): boolean {
     const { pos } = this.state.scroll
 
-    if (!isClientSide()) {
+    if (!isClientSide())
       return false
-    }
 
     return pos > 126 || pos > screen.height / 3
   }
