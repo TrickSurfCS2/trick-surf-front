@@ -21,7 +21,7 @@ const Records: FC = observer(() => {
       </Helmet>
       <RecordsStyled>
         <div className="dev">
-          <span>IN DEVELOPMENT</span>
+          <div>IN DEVELOPMENT</div>
         </div>
       </RecordsStyled>
     </Fragment>

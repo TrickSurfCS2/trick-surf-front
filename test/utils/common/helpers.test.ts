@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 
-import { getUrlParam, randomNum } from '../../../src/utils/common/helpers'
+import { getUrlParam, randomNum } from '#/utils/common/helpers'
 
 describe('randomNum function', () => {
   it('should return a number within the range', () => {

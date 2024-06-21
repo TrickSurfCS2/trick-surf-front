@@ -6,10 +6,10 @@ export function Logo() {
       <svg viewBox="0 0 900 200">
         <symbol id="s-text">
           <text textAnchor="middle" x="50%" y="80%">
-            xSolare
+            Trickgxds
           </text>
           <text textAnchor="middle" x="50.8%" y="80%">
-            xSolare
+            Trickgxds
           </text>
         </symbol>
 

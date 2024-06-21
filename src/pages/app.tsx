@@ -1,5 +1,5 @@
-import ErrorBoundary from '#/components/error/error-boundary'
-import AppLayout from '#/components/layouts/app/app.layout'
+import ErrorBoundary from '../components/modules/error/error-boundary'
+import AppLayout from '../components/layouts/app/app.layout'
 import { Modal } from '#/components/ui/modal/modal'
 import type { ModalController } from '#/components/ui/modal/modal.store'
 import { RootStoreProvider } from '#/contexts/root-store'

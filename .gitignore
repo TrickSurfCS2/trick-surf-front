@@ -28,3 +28,4 @@ tsconfig.tsbuildinfo
 
 .vitestcache
 e2e-*
+*tsbuildinfo

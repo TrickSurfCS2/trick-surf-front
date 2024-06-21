@@ -47,6 +47,7 @@ const SceneViewerStyled = styled.div`
   display: grid;
   grid-template-columns: auto 8%;
   height: 50vh;
+  width: 100%;
 
   & > div {
     grid-column: 1/-1;
@@ -59,10 +60,5 @@ const SceneViewerStyled = styled.div`
     margin-top: 1.05em;
     margin-right: 1.05em;
     justify-self: end;
-  }
-
-  @media (min-width: 768px) {
-    width: 80vw;
-    height: 100vh;
   }
 `
