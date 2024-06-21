@@ -1,4 +1,3 @@
-/* eslint-disable react/no-unknown-property */
 import { useRef } from 'react'
 
 import { CameraControls, Center, Environment } from '@react-three/drei'

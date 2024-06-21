@@ -47,7 +47,7 @@ export const Header = observer(
               </li>
             </ul>
             <ul>
-              <li>Trickgxds</li>
+              <li>surfgxds</li>
             </ul>
           </div>
           <div>

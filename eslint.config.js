@@ -11,6 +11,7 @@ export default await config({
   stylistic: true,
   isInEditor: true,
   react: true,
+  formatters: true,
 
   vue: false,
 
@@ -20,5 +21,6 @@ export default await config({
     'node/prefer-global/process': 'off',
     'react/display-name': 'off',
     'react-hooks/exhaustive-deps': 'off',
+    'react/prefer-shorthand-fragment': 'off',
   },
 })

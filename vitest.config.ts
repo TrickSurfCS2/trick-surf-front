@@ -11,7 +11,6 @@ export default defineConfig({
   resolve: {
     alias: {
       '#': fileURLToPath(new URL('./src', import.meta.url)),
-      '~': fileURLToPath(new URL('./node_modules', import.meta.url)),
     },
     extensions: ['.js', '.json', '.jsx', '.mjs', '.ts', '.tsx'],
   },
@@ -25,11 +24,11 @@ export default defineConfig({
     cache: {
       dir: '.vitestcache',
     },
+    include: ['./test/**/**.test.{ts,tsx}'],
     globals: true,
     coverage: {
       all: true,
       provider: 'istanbul',
-      include: ['components', 'utils'],
     },
     environment: 'happy-dom',
   },

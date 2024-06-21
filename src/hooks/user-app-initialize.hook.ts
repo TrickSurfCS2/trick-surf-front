@@ -1,3 +1,4 @@
+/* eslint-disable regexp/no-unused-capturing-group */
 import type { ModalController } from '#/components/ui/modal/modal.store'
 import type { TControllerRef } from '#/utils/common/utils'
 

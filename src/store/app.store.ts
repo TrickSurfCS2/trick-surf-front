@@ -83,8 +83,9 @@ export default class AppStore {
       && Math.abs(innerHeight - h) < 80
       && width === w
       && (hpad || pad || mobile)
-    )
+    ) {
       return
+    }
 
     this.setViewport({
       w: width,

@@ -9,9 +9,9 @@ import type { ButtonProps } from '../button/button'
 import type { ButtonController } from '../button/button.store'
 
 export enum ModalType {
-  'CONFIRM',
-  'ALERT',
-  'PROCESSING',
+  CONFIRM,
+  ALERT,
+  PROCESSING,
 }
 
 export interface ModalController {

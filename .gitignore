@@ -29,3 +29,6 @@ tsconfig.tsbuildinfo
 .vitestcache
 e2e-*
 *tsbuildinfo
+coverage
+dist-client
+dist-server
