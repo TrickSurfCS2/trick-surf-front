@@ -21,9 +21,9 @@ app.get('/metrics', async (_: Request, res: Response, next: NextFunction) => {
   }
 })
 
-app.use('/', express.static(path.join(__dirname, 'dist')))
+app.use('/', express.static(path.join(__dirname, 'dist-client')))
 app.get('*', (_: Request, res: Response) =>
-  res.sendFile(path.join(__dirname, 'dist', 'index.html')))
+  res.sendFile(path.join(__dirname, 'dist-client', 'index.html')))
 
 app.listen(port, () => {
   console.log('\x1B[36m%s\x1B[0m', '---------------------------------------')

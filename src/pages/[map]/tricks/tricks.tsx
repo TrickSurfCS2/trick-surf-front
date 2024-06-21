@@ -2,7 +2,7 @@ import type { FC } from 'react'
 
 import { TricksStyled } from './tricks.style'
 
-import TricksList from '#/components/[map]/tricks/tricks-list'
+import TricksList from '#/components/modules/[map]/tricks/tricks-list'
 
 // Tricks page
 //* ------------------------------------------------------------------------------------------ *//

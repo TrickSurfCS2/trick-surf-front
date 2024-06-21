@@ -1,7 +1,8 @@
 export const LogoStyled = styled.div`
   @import url(https://fonts.googleapis.com/css?family=Montserrat);
   overflow: hidden;
-
+  width: 500px;
+  
   > svg {
     display: block;
     font: 10.5em 'Montserrat';

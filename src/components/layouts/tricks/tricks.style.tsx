@@ -7,7 +7,6 @@ export const TricksStyled = styled.div`
     height: 100%;
     min-height: calc(100vw / 6);
     max-height: calc(100vw / 6);
-    width: 100vw;
 
     display: flex;
     align-items: center;
@@ -32,7 +31,6 @@ export const TricksStyled = styled.div`
   }
 
   .sections {
-    width: 100vw;
     height: 36px;
     background-color: ${({ theme }) => theme.palette.bg.content};
 

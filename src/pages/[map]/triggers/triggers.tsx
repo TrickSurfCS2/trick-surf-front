@@ -5,7 +5,7 @@ import Helmet from 'react-helmet'
 
 import { TriggersStyled } from './triggers.style'
 
-import TriggersList from '#/components/[map]/triggers/triggers-list'
+import TriggersList from '#/components/modules/[map]/triggers/triggers-list'
 
 // Triggers page
 //* ------------------------------------------------------------------------------------------ *//

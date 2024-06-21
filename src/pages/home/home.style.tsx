@@ -1,16 +1,18 @@
 export const HomeStyled = styled.div`
-  min-height: 100%;
   position: relative;
 
   display: flex;
+  justify-content: center;
+  align-items: center;
   flex-direction: column;
   gap: 48px;
+  height: 100%;
 
-  max-width: ${({ theme }) => theme.sizes.content.width};
   margin: 0 auto;
 
+  flex-grow: 1;
+  
   padding: 16px;
-
   ${breakpoint('sm')} {
     gap: 24px;
     padding: 8px;

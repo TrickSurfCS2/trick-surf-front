@@ -1,12 +1,12 @@
 import { beforeEach, describe, expect, it } from 'vitest'
 
-import { LocalStorage } from '../../../src/utils/common/local-storage'
+import { LocalStorage } from '#/utils/common/local-storage'
 
 import type {
   ILocalStorageEntryExpireAt,
   ILocalStorageEntryName,
   ILocalStorageEntryValue,
-} from '../../../src/utils/common/local-storage'
+} from '#/utils/common/local-storage'
 
 describe('localStorage class', () => {
   beforeEach(() => {

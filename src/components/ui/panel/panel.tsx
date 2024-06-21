@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unstable-default-props */
 import { observer } from 'mobx-react-lite'
 import type { FC, PropsWithChildren, RefObject } from 'react'
 import { useRef } from 'react'

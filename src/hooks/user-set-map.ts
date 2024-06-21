@@ -7,7 +7,7 @@ export function useSetMap() {
 
   useEffect(() => {
     appStore.findAndSetMap(map)
-  }, [])
+  }, [map])
 
   return appStore.map
 }
